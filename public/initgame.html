@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap & jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- select-picker for bootstrap -->
+    <script type="text/javascript" src="dist/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap-select.min.css">
+    <!-- Javascript -->
+    <script src="js/functions.js"></script>
+    <script src="js/initgame.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/initgame.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+
+
+    <title>Disc Golf</title>
+  </head>
+
+  <body onLoad="javascript:initGame()">
+  <div class="container">
+    <div id="main-container" class="container">
+      <div id="course-select-div">
+        <h4 class="center-x center-y">Course</h4>
+
+      </div>
+      <div id="players-check-div">
+        <h4 class="center-x center-y">Players</h4>
+
+      </div>
+      <button id="start-game-btn" class="btn btn-block btn-orange" onClick="startGame()">Start game</button>
+    </div> 
+    
+  </div> <!-- /container -->
+  </body>
+</html>
