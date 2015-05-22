@@ -56,5 +56,11 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
 module.exports = app;
+
+var serverPort = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var serverHost = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
+var server = app.listen(serverPort, serverHost, function( {
+  console.log("Vidisc listening on " + serverHost + ", serverPort " + serverPort);
+});
