@@ -9,7 +9,7 @@ var host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 /**
  * Module dependencies.
  */
-var app = require('../app');
+var app = require('app');
 var debug = require('debug')('vidisc:server');
 var http = require('http');
 
