@@ -103,8 +103,8 @@ function printCourse() {
 		+ '<h4 id="par">Loading...</h4>'
 		+ '</div>'
 		+ '<div id="rightdiv">'
-		+ '<button id="minus" class="btn btn-lg btn-primary right" onClick="changeHole(-1)"><span class="glyphicon glyphicon-chevron-left"></span></button>'
 		+ '<button id="plus" class="btn btn-lg btn-primary right" onClick="changeHole(1)"><span class="glyphicon glyphicon-chevron-right"></span></button>'
+		+ '<button id="minus" class="btn btn-lg btn-primary right" onClick="changeHole(-1)"><span class="glyphicon glyphicon-chevron-left"></span></button>'
 		+ '</div>'
 	);
 	refreshHole();

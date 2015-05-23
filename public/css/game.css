@@ -1,3 +1,7 @@
+#main-container {
+	padding-left: 9px;
+}
+
 #course-container {
 	width: 100%;
 }
@@ -49,11 +53,12 @@ tr, td {
 
 #minuscell, #pluscell {
 	width: 65px;
+	padding-right: 0px;
 }
 
 #pluscell {
-	padding-left: 4px;
-	padding-right: 9px;
+	padding-left: 0px;
+	padding-right: 7px;
 }
 
 #pminusbtn, #pplusbtn {
@@ -71,6 +76,7 @@ tr, td {
 #rightdiv {
 	float: right;
 	width: auto;
+	padding-right: 4px;
 	height: 75px;
 }
 
