@@ -11,16 +11,21 @@
 	max-width: 350px;
 }
 
+h3 {
+	/*color: #FF6600;*/
+	color: #DDDDDD;
+}
+
+h4 {
+	color: #DDDDDD;
+}
+
+h5 {
+	color: #DDDDDD;
+}
+
 body {
 	background-color: #111111;
-}
-
-h4,h5,h6 {
-	color: #FF6600;
-}
-
-h1,h2,h3 {
-	color: #428bca;
 }
 
 @media screen and (max-device-width: 480px) and (orientation: portrait){

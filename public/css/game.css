@@ -8,7 +8,6 @@
 
 #scoretable {
 	width: 100%;
-	color: #FF6600;
 	margin: 0px;
 }
 
@@ -77,7 +76,7 @@ tr, td {
 }
 
 /* primary */
-/* color: #428bca; */
+/* color: #428BCA; */
 
 /* orange */
 /* color: #FF6600; */
@@ -86,11 +85,11 @@ tr, td {
 /* color: #00FFFF; */
 
 #courseprint, #hole, #par {
-	color: #00FFFF;
+	color: #DDDDDD;
 }
 
 #name {
-	color: #00FFFF;
+	color: #DDDDDD;
 }
 
 /* Increase width & height to hide scroll bars */

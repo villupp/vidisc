@@ -95,8 +95,8 @@ function startGame() {
     } else {
         setCookie('currentCourse', courseID, 30);
         setCookie('currentPlayers', playerIDs, 30);
-        console.log("course ID : " + courseID);
-        console.log("Player IDs : " + playerIDs);
+        //console.log("course ID : " + courseID);
+        //console.log("Player IDs : " + playerIDs);
         console.log("Redirecting...");
         window.location.href='/game.html';
     }
@@ -110,12 +110,12 @@ $(document).ready(function() {
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
             $(this).find('.state-icon').removeClass('glyphicon-check').addClass('glyphicon-unchecked');
-            $(this).removeClass('btn-primary').addClass('btn-inverse');
+            $(this).removeClass('btn-success').addClass('btn-inverse');
             $(this).next('input').attr('checked', false);
         } else {
             $(this).addClass('active');
             $(this).find('.state-icon').removeClass('glyphicon-unchecked').addClass('glyphicon-check');
-            $(this).removeClass('btn-inverse').addClass('btn-primary');
+            $(this).removeClass('btn-inverse').addClass('btn-success');
             $(this).next('input').attr('checked', true);
         }
             

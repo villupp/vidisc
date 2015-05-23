@@ -75,14 +75,6 @@ function initPlayers() {
 						refreshTable();
     				}
 				};
-        	    /*xhr[i].onload = function() {
-	       			var jsonData = JSON.parse(xhr[i].responseText);
-        			//console.log(jsonData);
-	        		players[i] = jsonData;
-	        		//console.log("players [i] : " + players[i]);
-	        		if ( i == (playerIDs.length-1) )
-	        			printPlayers();
-	    		};*/
                 xhr.onerror = function() {
 	        		console.log('There was an error!');
 	   			 };
@@ -120,24 +112,15 @@ function printCourse() {
 
 function printPlayerTable() {
 	$('#playerscores-container').append(
-		
 		'<div id="scrollwrapper">'
-		
 		+ '<div id="tablescroll">'
 		+ '<table id="scoretable" class="table borderless">'
 		+ '</table>'
 		+ '</div>'
-		
 		+ '</div>'
-
 	);
 
 	for (var i = 0; i < playerIDs.length; i++) {
-		//console.log("json : " + JSON.stringify(players[i]));
-		//console.log("player ID : " + players[i].id + ", i : " + i);
-		//console.log("holes length : " + course.holes.length);
-		//console.log("playerscores : " + JSON.stringify(playerScores[i]));
-
 		$('#scoretable').append(
 			'<tr id="' + playerIDs[i] + '">'
 			+ '<td id="namecell" class="center-y">'
@@ -252,11 +235,9 @@ function changeHole(dir) {
 	refreshTable();
 }
 
-// pID:1,2,3,4,5,6,7,8,9;pID:1,2,3,4,5,6,7,8,9;pID:1,2,3,4,5,6,7,8,9;
-
 function submitScores() {
 	if ( confirm('Are you sure you want to submit these scores?') ) {
-    	console.log(playerScores);
+    	//console.log(playerScores);
     	var playerScoreStr = "";
     	for (var i = 0; i < playerScores.length; i++) {
     		playerScoreStr += playerScores[i].id + ":";
@@ -287,28 +268,8 @@ function submitScores() {
 				//console.log("Scores saved in cookie");
 				//setCookie('currentRoundScores', result, 30);
 			},
-			async: true
 		});
-
-		/*
-	    var xhr = createCORSRequest('POST',  url);
-	    if (!xhr) {
-	        throw new Error('CORS not supported');
-	    }
-	    xhr.onload = function() {
-	        var jsonData = JSON.parse(xhr.responseText);
-	        console.log(jsonData);
-	    };
-	    xhr.onerror = function() {
-	        console.log('There was an error!');
-	    };
-	    xhr.send();
-	    */
 	} else {
    		alert("Scores were not sent.");
 	}
 }
-
-$(document).ready(function() {
-
-});

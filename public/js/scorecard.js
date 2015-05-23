@@ -3,8 +3,6 @@ var currentRoundScores = getCookie('currentRoundScores');
 function scorecard() {
 	//console.log(currentRoundScores);
 	currentRoundScores = JSON.parse(currentRoundScores);
-	//onsole.log(currentRoundScores);
-	//console.log(currentRoundScores.playedAt);
 	printScorecard(currentRoundScores);
 }
 

@@ -8,18 +8,31 @@
 
 #scorecard-table {
 	width: 100%;
+	overflow: hidden;
+	table-layout: fixed;
+}
+
+.table>tbody {
+	width: auto;
+	overflow: hidden;
 }
 
 .table>tbody>tr>th {
+	overflow: hidden;
+	width: 55px;
 	color: #00FFFF;
 	font-size: 9pt;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .table>tbody>tr>td {
-	width: 25px;
+	width: 55px;
 	overflow: hidden;
 	color: #FFFFFF;
 	font-size: 9pt;
+	vertical-align: middle;
+	text-align: center;
 }
 
 #courseprint {
