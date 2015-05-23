@@ -10,6 +10,7 @@
 	overflow: hidden;
 	table-layout: fixed;
 	width: 110px;
+	border: none;
 }
 
 .table>tbody {
@@ -46,11 +47,18 @@
 
 #tablescroll {
     overflow: scroll;
-    height: 290px;
     width: 100%;
 }
 
-@media screen and (max-device-width: 480px) {
+@media screen and (min-device-width: 481px) {
 	/* Increase width & height to hide scroll bars */
+	#tablescroll {
+    	overflow: visible;
+    	width: 100%;
+	}
 
+	#main-container {
+		width: 100%;
+		max-width: 500px;
+	}
 }
