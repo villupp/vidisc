@@ -1,0 +1,31 @@
+#course-container {
+	width: 100%;
+}
+
+#scorecard-container {
+	width: 100%;
+}
+
+#scorecard-table {
+	width: 100%;
+}
+
+.table>tbody>tr>th {
+	color: #00FFFF;
+	font-size: 9pt;
+}
+
+.table>tbody>tr>td {
+	width: 25px;
+	overflow: hidden;
+	color: #FFFFFF;
+	font-size: 9pt;
+}
+
+#courseprint {
+	color: #00FFFF;
+}
+
+th, td {
+	padding:5px;
+}
