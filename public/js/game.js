@@ -275,12 +275,17 @@ function submitScores() {
   			type: 'POST',
 			url: url,
 		    data: data,
-			success: function(result) {
-				console.log(result);
+			success: function(roundObject) {
+				var roundJSON = JSON.parse(roundObject);
+				console.log(roundJSON);
+				setCookie('currentRoundScores', roundJSON, 30);
 				alert("Scores sent succesfully.");
+				window.location.href='/scorecard.html';
 			},
 			error: function(error) {
 				console.log("Error occured when sending scores: " + error.responseText);
+				//console.log("Scores saved in cookie");
+				//setCookie('currentRoundScores', result, 30);
 			},
 			async: true
 		});

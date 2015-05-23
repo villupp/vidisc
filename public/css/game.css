@@ -76,16 +76,21 @@ tr, td {
 	float: left;
 }
 
-/* color: #428bca; <-- blue   */
 /* primary */
-/* color: #FF6600; <-- orange */
+/* color: #428bca; */
+
 /* orange */
+/* color: #FF6600; */
+
+/* ltblue */
+/* color: #00FFFF; */
+
 #courseprint, #hole, #par {
-	color: #428bca;
+	color: #00FFFF;
 }
 
 #name {
-	color: #428bca;
+	color: #00FFFF;
 }
 
 /* Increase width & height to hide scroll bars */
