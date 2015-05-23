@@ -11,7 +11,7 @@ function printScorecard(round) {
 	var course = round.course;
 	var coursePar = 0;
 	var coursePrint = course.name;
-	var playedAt = new Date(round.playedAt);
+	var playedAt = new Date(round.playedAt).addHours(4);
 	playedAt = playedAt.toLocaleString();
  	for (var i = 0; i < course.holes.length; i++) {
 		coursePar += course.holes[i].par;
