@@ -12,6 +12,9 @@ var playerScores = [{}];
 // current hole
 var currentHole = 1;
 
+// current coursepar
+var coursePar = 0;
+
 function game() {
 	console.log("initializing game...");
 	playerIDs = getCookie('currentPlayers').split(',');
@@ -38,6 +41,9 @@ function initCourse() {
         var jsonData = JSON.parse(xhr.responseText);
         //console.log(jsonData);
         course = jsonData;
+        for (var i = 0; i < course.holes.length; i++) {
+        	coursePar += course.holes[i].par;
+        }
         printCourse();
         initPlayers();
         printPlayerTable();
@@ -146,19 +152,34 @@ function refreshTable() {
 			var playerScoreRes = $.grep(playerScores, function(e){ if (e != null) return e.id == players[i].id; });
 			var playerScore = playerScoreRes[0].pscores[(currentHole-1)];
 			var currentPar = course.holes[currentHole-1].par;
+			// Counting current total score for each player
+			var currentTotalScore = 0;
+			var prefix = "";
+			if (playerScoreRes[0] != null) {
+				for (var j = 0; j < playerScoreRes[0].pscores.length; j++) {
+					currentTotalScore += playerScoreRes[0].pscores[j];
+				}
+			}
+			if (currentTotalScore < coursePar) prefix = "-";
+			else if (currentTotalScore > coursePar) prefix = "+";
+			// Disabling + and - when necessary
 			if ( playerScore == 1 ) {
 				$('#' + players[i].id).find('#pminusbtn').attr("disabled", true);
 			} else {
 				$('#' + players[i].id).find('#pminusbtn').attr("disabled", false);
 			}
-
+			// Generating printable player name and score and appending to namecell
 			var printName = players[i].name;
-			if (printName.length > 20) printName = printName.substring(0, 18) + '..';
+			if (printName.length > 20) {
+				printName = printName.substring(0, 16) + '..';
+			}
+			printName += '<br/><h5 style="color: #00FFFF">' + prefix + Math.abs(currentTotalScore-coursePar) + '</h5>';
 			$('#' + players[i].id).find('#namecell').empty().append(
 				'<h4 id="name">'
 				+ printName
 				+ '</h4>'
 			);
+			// Scorecell for hole score
 			if (playerScoreRes[0] != null) {
 				var color = "#00FF00"; //green (par)
 				if ( playerScore == 1 ) {
@@ -233,6 +254,9 @@ function changeHole(dir) {
 	}
 	$('#plus').blur();
 	$('#minus').blur();
+
+	
+
 	refreshHole();
 	refreshTable();
 }
