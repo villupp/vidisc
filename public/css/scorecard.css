@@ -20,6 +20,8 @@
 
 .table>tbody>tr>th {
 	width: 55px;
+	height: 10px;
+	line-height: 12px;
 	color: #00FFFF;
 	font-size: 10pt;
 	vertical-align: middle;
@@ -30,8 +32,9 @@
 .table>tbody>tr>td {
 	padding: 0px;
 	margin: 0px;
-	width: 55px;
-	height: 25px;
+	width: 50px;
+	height: 10px;
+	line-height: 10px;
 	overflow: hidden;
 	color: #000000;
 	font-weight: bold;
