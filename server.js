@@ -9,7 +9,7 @@ var host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 /**
  * Module dependencies.
  */
-var app = require('app');
+var app = require('./app');
 var debug = require('debug')('vidisc:server');
 var http = require('http');
 
@@ -27,7 +27,7 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, host, function( {
+server.listen(port, host, function() {
   console.log("Vidisc listening on " + host + ", serverPort " + port);
 });
 server.on('error', onError);
