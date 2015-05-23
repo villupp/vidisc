@@ -39,8 +39,8 @@ body {
 	}
 
 	.container {
-		padding-right: 5px;
-		margin-left: 5px;
+		padding: 0px;
+		margin: 0px;
 	}
 	
 	/* for removing the annoying hover on mobile */
