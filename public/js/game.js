@@ -103,8 +103,8 @@ function printCourse() {
 		+ '<h4 id="par">Loading...</h4>'
 		+ '</div>'
 		+ '<div id="rightdiv">'
-		+ '<button id="minus" class="btn btn-primary right" onClick="changeHole(-1)"><span class="glyphicon glyphicon-chevron-left"></span></button>'
-		+ '<button id="plus" class="btn btn-primary right" onClick="changeHole(1)"><span class="glyphicon glyphicon-chevron-right"></span></button>'
+		+ '<button id="minus" class="btn btn-lg btn-primary right" onClick="changeHole(-1)"><span class="glyphicon glyphicon-chevron-left"></span></button>'
+		+ '<button id="plus" class="btn btn-lg btn-primary right" onClick="changeHole(1)"><span class="glyphicon glyphicon-chevron-right"></span></button>'
 		+ '</div>'
 	);
 	refreshHole();
@@ -163,17 +163,19 @@ function refreshTable() {
 				var color = "#00FF00"; //green (par)
 				if ( playerScore == 1 ) {
 					color = "#FF1493"; //holeinone
+				} else if ( playerScore < (currentPar-1) ) {
+					color = "#BA15FF"; //violet ( -2 )
 				} else if ( playerScore < currentPar ) {
-					color = "#0000FF"; //blue ( < 0 )
+					color = "#4444FF"; //blue ( < 0 )
 				} else if ( playerScore == (currentPar + 1) ) {
 					color = "#FFA500"; //primary ( +1 )
 				} else if ( playerScore > (currentPar + 1) ) {
 					color = "#FF0000"; //red ( > +1 )
 				}
 				$('#' + players[i].id).find('#scorecell').empty().append(
-					'<h3 style="color: ' + color + ';">'
+					'<font id="score" style="color: ' + color + ';">'
 					+ playerScoreRes[0].pscores[(currentHole-1)]
-					+ '</h3>'
+					+ '</font>'
 				);
 			}
 		}

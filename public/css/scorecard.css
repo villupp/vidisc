@@ -7,38 +7,50 @@
 }
 
 #scorecard-table {
-	width: 100%;
+	overflow: hidden;
+	table-layout: fixed;
+	width: 110px;
+}
+
+.table>tbody {
 	overflow: hidden;
 	table-layout: fixed;
 }
 
-.table>tbody {
-	width: auto;
-	overflow: hidden;
-}
-
 .table>tbody>tr>th {
-	overflow: hidden;
 	width: 55px;
 	color: #00FFFF;
-	font-size: 9pt;
+	font-size: 10pt;
 	vertical-align: middle;
 	text-align: center;
+	border: none;
 }
 
 .table>tbody>tr>td {
+	padding: 0px;
+	margin: 0px;
 	width: 55px;
+	height: 25px;
 	overflow: hidden;
-	color: #FFFFFF;
-	font-size: 9pt;
+	color: #000000;
+	font-weight: bold;
+	font-size: 12pt;
 	vertical-align: middle;
 	text-align: center;
+	border: 1px solid #000000;
 }
 
 #courseprint {
 	color: #00FFFF;
 }
 
-th, td {
-	padding:5px;
+#tablescroll {
+    overflow: scroll;
+    height: 290px;
+    width: 100%;
+}
+
+@media screen and (max-device-width: 480px) {
+	/* Increase width & height to hide scroll bars */
+
 }

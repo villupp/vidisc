@@ -13,15 +13,15 @@
 
 h3 {
 	/*color: #FF6600;*/
-	color: #00FFFF;
+	color: #FFFFFF;
 }
 
 h4 {
-	color: #00FFFF;
+	color: #FFFFFF;
 }
 
 h5 {
-	color: #00FFFF;
+	color: #FFFFFF;
 }
 
 body {
@@ -40,7 +40,7 @@ body {
 	}
 
 	.container {
-		padding: 5px;
+		padding: 0px;
 		margin: 0px;
 	}
 	

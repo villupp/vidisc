@@ -11,6 +11,14 @@
 	margin: 0px;
 }
 
+#score {
+	text-align: center;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	font-size: 18pt;
+}
+
 tr, td {
 	height: 55px;
 	overflow: hidden;
@@ -23,6 +31,7 @@ tr, td {
     line-height: 60px;
     padding: 2px;
     vertical-align: middle;
+    text-align: center;
     margin: 0px;
     height: 55px;
 }
