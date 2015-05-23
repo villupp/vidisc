@@ -8,6 +8,7 @@
 
 #playerscores-container {
 	width: 100%;
+	height: 50%;
 }
 
 #scoretable {
@@ -110,7 +111,7 @@ tr, td {
 /* Increase width & height to hide scroll bars */
 #tablescroll {
     overflow: scroll;
-    height: 290px;
+    height: 350px;
     width: 100%;
 }
 
