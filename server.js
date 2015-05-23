@@ -3,7 +3,7 @@
 /**
  * OpenShift env variables / localhost
  */
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || 3000);
 var host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 /**
@@ -16,9 +16,8 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(process.env.PORT || '3000');
+//
 app.set('port', port);
-
 /**
  * Create HTTP server.
  */
