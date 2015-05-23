@@ -271,7 +271,7 @@ function submitScores() {
     	console.log("Sending scores, score string : \"" + playerScoreStr + "\"");
     	var data = { scores : playerScoreStr, courseID : courseID};
     	var url = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/addroundscore';
-    	/*$.ajax({
+    	$.ajax({
   			type: 'POST',
 			url: url,
 		    data: data,
@@ -283,7 +283,9 @@ function submitScores() {
 				console.log("Error occured when sending scores: " + error.responseText);
 			},
 			async: true
-		});*/
+		});
+
+		/*
 	    var xhr = createCORSRequest('POST',  url);
 	    if (!xhr) {
 	        throw new Error('CORS not supported');
@@ -296,6 +298,7 @@ function submitScores() {
 	        console.log('There was an error!');
 	    };
 	    xhr.send();
+	    */
 	} else {
    		alert("Scores were not sent.");
 	}
