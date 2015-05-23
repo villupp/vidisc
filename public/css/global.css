@@ -29,7 +29,6 @@ body {
 }
 
 @media screen and (max-device-width: 480px) and (orientation: portrait){
-
  	html, body {
  		width: 100%;
  	}
@@ -40,8 +39,8 @@ body {
 	}
 
 	.container {
-		padding: 0px;
-		margin: 5px;
+		padding-right: 5px;
+		margin-left: 5px;
 	}
 	
 	/* for removing the annoying hover on mobile */

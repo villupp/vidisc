@@ -8,7 +8,7 @@
 
 #scoretable {
 	width: 100%;
-	margin: 0px;
+	margin-right: 2px;
 }
 
 #score {
@@ -62,6 +62,7 @@ tr, td {
 }
 
 #minus, #plus {
+	float: right;
 	width: 65px;
 	height: 65px;
 	margin: 2px;

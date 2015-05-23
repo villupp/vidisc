@@ -130,10 +130,10 @@ function printPlayerTable() {
 			+ 'loading'
 			+ '</td>'
 			+ '<td id="minuscell">'
-			+ '<button id="pminusbtn" class="btn btn-primary" onClick="changeScore(' + playerIDs[i] + ', -1)"><span class="glyphicon glyphicon-chevron-left"></span></button>'
+			+ '<button id="pminusbtn" class="btn btn-lg btn-primary" onClick="changeScore(' + playerIDs[i] + ', -1)"><span class="glyphicon glyphicon-chevron-left"></span></button>'
 			+ '</td>'
 			+ '<td id="pluscell">'
-			+ '<button id="pplusbtn" class="btn btn-primary" onClick="changeScore(' + playerIDs[i] + ', 1)"><span class="glyphicon glyphicon-chevron-right"></span></button>'
+			+ '<button id="pplusbtn" class="btn btn-lg btn-primary" onClick="changeScore(' + playerIDs[i] + ', 1)"><span class="glyphicon glyphicon-chevron-right"></span></button>'
 			+ '</td>'
 			+ '</tr>'
 		);
