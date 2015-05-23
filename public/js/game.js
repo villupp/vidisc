@@ -277,8 +277,8 @@ function submitScores() {
 		    data: data,
 			success: function(roundObject) {
 				//var roundJSON = JSON.parse(roundObject);
-				console.log(roundJSON);
-				setCookie('currentRoundScores', roundJSON, 30);
+				console.log(roundObject);
+				setCookie('currentRoundScores', roundObject, 30);
 				alert("Scores sent succesfully.");
 				window.location.href = '/scorecard.html';
 			},
