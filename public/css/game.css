@@ -85,11 +85,11 @@ tr, td {
 /* color: #00FFFF; */
 
 #courseprint, #hole, #par {
-	color: #DDDDDD;
+	color: #00FFFF;
 }
 
 #name {
-	color: #DDDDDD;
+	color: #00FFFF;
 }
 
 /* Increase width & height to hide scroll bars */
