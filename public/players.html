@@ -13,27 +13,25 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Javascript -->
     <script src="js/functions.js"></script>
+    <script src="js/players.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" >
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link rel="stylesheet" type="text/css" href="css/players.css" />
 
-    <title>Disc Golf</title>
+    <title>Players</title>
   </head>
 
   <body>
-  <!-- user -->
   <div class="container">
     <div id="main-container" class="container">
-      <h3 class="center-x center-y center-x center-y">Disc Golf UI</h3>
-      <h4 class="center-x center-y">App v0.1</h4>
-      <ul class="list-group">
-        <!-- select course and players -->
-        <a class="center-x center-y list-group-item" href="initgame.html"><b>New game</b></a>
-        <a class="center-x center-y list-group-item" href="statistics.html"><b>Statistics</b></a>
-        <a class="center-x center-y list-group-item" href="players.html"><b>Players</b></a>
-        <a class="center-x center-y list-group-item" href="about.html"><b>About</b></a>
-      </ul>
+      <h3 class="center-x center-y">Players</h3>
+      <h4 class="center-x center-y">Add new player</h4>
+      <form>
+        <input id="new-player-name" class="form-control" type="text" placeholder="Player name"></input>
+        <input type="submit" id="add-player-btn" class="btn btn-block btn-primary" onClick="addPlayer()" value="Add Player"></button>
+      </form>
     </div>
-  </div> <!-- /container -->
+  </div>
 
   </body>
 </html>

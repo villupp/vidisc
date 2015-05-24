@@ -13,18 +13,25 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Javascript -->
     <script src="js/functions.js"></script>
+    <script src="js/scorecards.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" >
+    <link rel="stylesheet" type="text/css" href="css/global.css" >
+    <link rel="stylesheet" type="text/css" href="css/scorecards.css" >
 
     <title>Disc Golf</title>
   </head>
 
-  <body>
+  <body onLoad="scorecards()">
   <!-- user -->
   <div class="container">
     <div id="main-container" class="container">
-      <h3 class="center-x center-y center-x center-y"></h3>
-      <h4 class="center-x center-y"></h4>
+      <h3 class="center-x center-y center-x center-y">Scorecards</h3>
+      <h4 class="center-x center-y">Select</h4>
+      <div id="scorecards-container">
+        <ul id="scorecards-list" class="list-group">
+          
+        </ul>
+      </div>
     </div>
   </div> <!-- /container -->
 

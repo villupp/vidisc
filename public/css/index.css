@@ -2,3 +2,8 @@ button {
 	margin-top: 3px;
 	height: 40px;
 }
+
+#menu-container {
+	width: 100%;
+	padding: 15px;
+}
