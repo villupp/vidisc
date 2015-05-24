@@ -7,6 +7,10 @@
 	border: 1px solid #333333;
 }
 
+a.list-group-item:hover, a.list-group-item:focus {
+	background-color: #226baa;
+}
+
 h4 small {
 	color: #FFFFFF;
 }
