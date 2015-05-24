@@ -54,25 +54,27 @@ function countTotals(round) {
 		courseTotalPar += round.course.holes[i].par;
 	}
 	// creating totalscores string using each players total
-	for (var i = 0; i < round.players.length; i++) {
-		var playerTotalStr = "";
-		var prefix = "";
-		var playerTotal = "";
-		var playerTotalScore = 0;
-		// players total score
-		for (var j = 0; j < round.players[i].scores.length; j++) {
-			playerTotalScore += round.players[i].scores[j];
+	if (round.players != null) {
+		for (var i = 0; i < round.players.length; i++) {
+			var playerTotalStr = "";
+			var prefix = "";
+			var playerTotal = "";
+			var playerTotalScore = 0;
+			// players total score
+			for (var j = 0; j < round.players[i].scores.length; j++) {
+				playerTotalScore += round.players[i].scores[j];
+			}
+			// prefix +/-
+			if (playerTotalScore > courseTotalPar) prefix = "+";
+			else if (playerTotalScore < courseTotalPar) prefix = "-";
+			// "<name> <prefix><Math.abs(playerscore-coursepar)>(, )"
+			playerTotal = round.players[i].player.name 
+			playerTotal += " ";
+			playerTotal += prefix 
+			playerTotal += Math.abs(playerTotalScore - courseTotalPar)
+			playerTotal += (i == (round.players.length-1)) ? "" : ", ";
+			totalsString += playerTotal;
 		}
-		// prefix +/-
-		if (playerTotalScore > courseTotalPar) prefix = "+";
-		else if (playerTotalScore < courseTotalPar) prefix = "-";
-		// "<name> <prefix><Math.abs(playerscore-coursepar)>(, )"
-		playerTotal = round.players[i].player.name 
-		playerTotal += " ";
-		playerTotal += prefix 
-		playerTotal += Math.abs(playerTotalScore - courseTotalPar)
-		playerTotal += (i == (round.players.length-1)) ? "" : ", ";
-		totalsString += playerTotal;
 	}
 	return totalsString;
 }
