@@ -10,3 +10,8 @@
 h4 small {
 	color: #333333;
 }
+
+#main-container {
+	padding-left: 15px;
+	padding-right: 15px;
+}

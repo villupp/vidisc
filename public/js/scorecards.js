@@ -49,30 +49,30 @@ function goToScoreCard(roundIndex) {
 function countTotals(round) {
 	var courseTotalPar = 0;
 	var totalsString = "";
+	// counting rounds course total par
 	for (var i = 0; i < round.course.holes.length; i++) {
 		courseTotalPar += round.course.holes[i].par;
 	}
-	console.log("course par : " + courseTotalPar);
+	// creating totalscores string using each players total
 	for (var i = 0; i < round.players.length; i++) {
 		var playerTotalStr = "";
 		var prefix = "";
 		var playerTotal = "";
 		var playerTotalScore = 0;
+		// players total score
 		for (var j = 0; j < round.players[i].scores.length; j++) {
 			playerTotalScore += round.players[i].scores[j];
 		}
+		// prefix +/-
 		if (playerTotalScore > courseTotalPar) prefix = "+";
 		else if (playerTotalScore < courseTotalPar) prefix = "-";
-		console.log('prefix : ' + prefix);
-		console.log('name : ' + round.players[i].player.name);
-		console.log('playertotalscore : ' + playerTotalScore);
+		// "<name> <prefix><Math.abs(playerscore-coursepar)>(, )"
 		playerTotal = round.players[i].player.name 
 		playerTotal += " ";
 		playerTotal += prefix 
 		playerTotal += Math.abs(playerTotalScore - courseTotalPar)
 		playerTotal += (i == (round.players.length-1)) ? "" : ", ";
 		totalsString += playerTotal;
-		console.log("playerTotal : " + playerTotal);
 	}
 	return totalsString;
 }
