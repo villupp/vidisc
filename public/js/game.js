@@ -18,7 +18,7 @@ var coursePar = 0;
 function game() {
 	console.log("initializing game...");
 	playerIDs = getCookie('currentPlayers').split(',');
-	console.log(playerIDs);
+	//console.log(playerIDs);
 	if (playerIDs == "" ) {
 		console.log("No current players, redirecting to initgame.html");
 		window.location.href='/initgame.html';
@@ -274,7 +274,7 @@ function submitScores() {
     		}
     		playerScoreStr += ";";
     	}
-    	console.log("Sending scores, score string : \"" + playerScoreStr + "\"");
+    	//console.log("Sending scores, score string : \"" + playerScoreStr + "\"");
     	var data = { scores : playerScoreStr, courseID : courseID};
     	var url = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/addroundscore';
     	$.ajax({
@@ -283,7 +283,7 @@ function submitScores() {
 		    data: data,
 			success: function(roundObject) {
 				//var roundJSON = JSON.parse(roundObject);
-				console.log(roundObject);
+				//console.log(roundObject);
 				setCookie('currentRoundScores', JSON.stringify(roundObject), 30);
 				//alert("Scores sent succesfully.");
 				window.location.href = '/scorecard.html';
