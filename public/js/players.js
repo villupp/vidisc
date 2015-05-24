@@ -10,11 +10,11 @@ function addPlayer() {
 		url: requestURL,
 	    data: data,
 		success: function(response) {
-			//var roundJSON = JSON.parse(roundObject);
 			console.log(response.responseText);
+			console.log(response);
 		},
 		error: function(error) {
-			console.log("Error occured when adding player: " + error.responseText);
+			console.log("Error occured when adding player : " + JSON.stringify(error) + " : " + error.responseText);
 		},
 	});
 

@@ -26,9 +26,11 @@
     <div id="main-container" class="container">
       <h3 class="center-x center-y">Players</h3>
       <h4 class="center-x center-y">Add new player</h4>
-      <form>
-        <input id="new-player-name" class="form-control" type="text" placeholder="Player name"></input>
-        <input type="submit" id="add-player-btn" class="btn btn-block btn-primary" onClick="addPlayer()" value="Add Player"></button>
+      <form id="add-player-form" method="post" action="http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/addplayer" >
+      <!--<form>-->
+        <input name="name" id="new-player-name" class="form-control" type="text" placeholder="Player name"></input>
+        <input type="submit" id="add-player-btn" class="btn btn-block btn-primary" value="Add Player"></input>
+        <!--<input type="submit" id="add-player-btn" class="btn btn-block btn-primary" onClick="addPlayer()" value="Add Player"></input>-->
       </form>
     </div>
   </div>
