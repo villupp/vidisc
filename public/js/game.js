@@ -255,8 +255,6 @@ function changeHole(dir) {
 	$('#plus').blur();
 	$('#minus').blur();
 
-	
-
 	refreshHole();
 	refreshTable();
 }

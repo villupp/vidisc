@@ -1,3 +1,8 @@
-#add-player-btn{
+#add-player-btn {
 	margin-top: 5px;
+}
+
+#main-container {
+	padding-left: 15px;
+	padding-right: 15px;
 }
