@@ -26,7 +26,7 @@ function printScorecardsList() {
 	for (var i = 0; i < rounds.length; i++) {
 		var totalsString = countTotals(rounds[i]);
 		var playedAt = new Date(rounds[i].playedAt).addHours(4).toLocaleString();
-		console.log(totalsString);
+		//console.log(totalsString);
 		$('#scorecards-list').append(
 			'<a class="list-group-item list-group-item-info" href="javascript:void(0)" onClick="goToScoreCard(' + i + ')">'
 			+ '<h4 class="list-title">' + rounds[i].course.name
