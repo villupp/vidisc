@@ -1,0 +1,13 @@
+button {
+	margin-top: 3px;
+	height: 55px;
+}
+
+#menu-container {
+	width: 100%;
+	padding: 15px;
+}
+
+h3 small {
+	color: #DDDDDD;
+}
