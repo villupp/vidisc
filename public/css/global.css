@@ -6,6 +6,15 @@
 	vertical-align: middle;
 }
 
+.btn-primary {
+	background-color: #1060A0;
+	border-color: #054e9d;
+}
+
+.list-group-item-info { 
+	background-color: #1060A0;
+}
+
 #main-container {
 	width: 80%;
 	max-width: 350px;
@@ -44,9 +53,10 @@ body {
 	}
 	
 	/* for removing the annoying hover on mobile */
+	/* match these with the global values above in this file */
 	.btn-primary:hover {
-		background-color: #428bca;
-		border-color: #357ebd;
+		background-color: #1060A0;
+		border-color: #054e9d;
 	}
 }
 

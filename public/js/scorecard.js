@@ -19,7 +19,7 @@ function printScorecard(round) {
 	if (coursePrint.length > 21) {
 		coursePrint = coursePrint.substring(0, 19) + '.. ';
 	}
-	coursePrint += ' (par ' + coursePar + ')';
+	coursePrint += '<br/>(par ' + coursePar + ')';
 
 	$('#course-container').append(
 		'<h4 id="courseprint">' + coursePrint + '</h4>'

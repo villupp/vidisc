@@ -302,6 +302,8 @@ function submitScores() {
 			success: function(roundObject) {
 				setCookie('currentRoundScores', JSON.stringify(roundObject), 30);
 				setCookie('currentSavedScores', '', 30);
+				setCookie('currentHole', '', 30);
+            	setCookie('currentPlayers', '', 30);
 				window.location.href = '/scorecard.html';
 			},
 			error: function(error) {

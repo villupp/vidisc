@@ -4,6 +4,8 @@ function initGame() {
             window.location.href='/game.html';
         } else {
             setCookie('currentSavedScores', '', 30);
+            setCookie('currentHole', '', 30);
+            setCookie('currentPlayers', '', 30);
         }
     }
     initCourseSelect();

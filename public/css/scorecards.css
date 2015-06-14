@@ -3,7 +3,7 @@
 }
 
 .list-group-item-info h5 {
-	margin: 5px;
+	margin: 8px;
 }
 
 .list-group-item-info {
@@ -12,7 +12,6 @@
 	padding-right: 15px;
 	padding-left: 15px;
 
-	background-color: #428bca;
 	border: 1px solid #333333;
 }
 
@@ -21,7 +20,9 @@ a.list-group-item:hover, a.list-group-item:focus {
 }
 
 h5 small {
-	color: #CCCCCC;
+	color: #DDDDDD;
+	font-size: 95%;
+	line-height: 1.5;
 }
 
 #main-container {
