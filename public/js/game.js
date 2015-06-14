@@ -42,8 +42,10 @@ function initCourse() {
         	coursePar += course.holes[i].par;
         }
         var curHoleTmp = getCookie('currentHole');
-        if (curHole != '') {
-        	currentHole = curHoleTmp;
+        if (curHoleTmp != '') {
+        	currentHole = parseInt(curHoleTmp);
+        } else {
+        	currentHole = 1;
         }
         printCourse();
         initPlayers();
