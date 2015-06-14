@@ -19,10 +19,14 @@ a.list-group-item:hover, a.list-group-item:focus {
 	background-color: #226baa;
 }
 
+h5 {
+	line-height: 1.5;
+}
+
 h5 small {
 	color: #DDDDDD;
-	font-size: 95%;
-	line-height: 1.5;
+	font-size: 85%;
+	line-height: 0.5;
 }
 
 #main-container {
