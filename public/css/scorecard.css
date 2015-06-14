@@ -54,6 +54,11 @@
     width: 100%;
 }
 
+#back-a {
+	margin-left: 25px;
+	font-size: 12pt;
+}
+
 @media screen and (min-device-width: 481px) {
 	/* Increase width & height to hide scroll bars */
 	#tablescroll {
