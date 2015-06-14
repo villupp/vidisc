@@ -41,6 +41,10 @@ function initCourse() {
         for (var i = 0; i < course.holes.length; i++) {
         	coursePar += course.holes[i].par;
         }
+        var curHoleTmp = getCookie('currentHole');
+        if (curHole != '') {
+        	currentHole = curHoleTmp;
+        }
         printCourse();
         initPlayers();
         printPlayerTable();
@@ -72,14 +76,15 @@ function initPlayers() {
 						var scores = [];
 
 						// if no save game
-						if (getCookie('currentSavedScores') == "") {
+						var curSavedScoresTmp = getCookie('currentSavedScores');
+						if (curSavedScoresTmp == '') {
 							console.log('No save game found, starting new game...');
 							for (var j = 0; j < course.holes.length; j++) {
 								scores[j] = course.holes[j].par;
 							}
 						}	else { // save game found
 							console.log('Save game found, loading...');
-							var savedScores = JSON.parse(getCookie('currentSavedScores'));
+							var savedScores = JSON.parse(curSavedScoresTmp);
 							scores = savedScores[i].pscores;
 						}
 						playerScores[i] = { id : players[i].id, pscores : scores };
@@ -251,11 +256,15 @@ function changeScore(playerid, dir) {
 	$('.pscore-blur-this').each(function() {
 		$(this).blur();
 	});
+	saveScores();
 	refreshTable();
 }
 
-function changeHole(dir) {
+function saveScores() {
 	setCookie('currentSavedScores', JSON.stringify(playerScores), 30);
+}
+
+function changeHole(dir) {
 	if (dir == -1) {
 		currentHole -= 1;
 	} else if (dir == 1) {
@@ -266,6 +275,7 @@ function changeHole(dir) {
 
 	refreshHole();
 	refreshTable();
+	setCookie('currentHole', currentHole, 30);
 }
 
 function submitScores() {

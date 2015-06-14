@@ -1,3 +1,10 @@
+var version = '1.1b'
+var rlsdt = '14.06.2015'
+
+$(document).ready(function() {
+    $('#version').append('v' + version)
+});
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -14,6 +21,10 @@ function getCookie(cname) {
         if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
     }
     return "";
+}
+
+function about() {
+    alert('Vidisc\nv' + version + ' (' + rlsdt2 + ')\n©Ville Piirainen 2015')
 }
 
 /*

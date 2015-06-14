@@ -25,15 +25,16 @@
     <div id="main-container" class="container">
       <h3 class="center-x center-y">Vidisc<br/>
       <small class="center-x center-y">Disc Golf Scores</small>
-      <small class="center-x center-y">v1.1</small>
+      <small id="version" class="center-x center-y"></small>
   </h3>
       <!-- select course and players -->
       <div id="menu-container" class="container">
         <button class="btn btn-block btn-primary" onClick=window.location.href='/initgame.html';>New game</button>
         <button class="btn btn-block btn-primary" onClick=window.location.href='/scorecards.html';>Scorecards</button>
+        <button class="btn btn-block btn-primary" onClick=window.location.href='/statistics.html';>Statistics</button>
         <button class="btn btn-block btn-primary" onClick=window.location.href='/players.html';>Players</button>
         <button class="btn btn-block btn-primary" onClick="">Courses</button>
-        <button class="btn btn-block btn-primary" onClick="">About</button>
+        <button class="btn btn-block btn-primary" onClick="javascript:about()">About</button>
       </div>
     </div>
   </div> <!-- /container -->

@@ -55,8 +55,10 @@
 }
 
 #back-a {
-	margin-left: 25px;
 	font-size: 12pt;
+	float: right;
+	margin-right: 50px;
+	margin-top: 25px; 
 }
 
 @media screen and (min-device-width: 481px) {
