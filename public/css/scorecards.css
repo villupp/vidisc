@@ -2,7 +2,16 @@
 	color: #FFFFFF;
 }
 
+.list-group-item-info h5 {
+	margin: 5px;
+}
+
 .list-group-item-info {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 15px;
+	padding-left: 15px;
+
 	background-color: #428bca;
 	border: 1px solid #333333;
 }
