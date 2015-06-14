@@ -16,9 +16,7 @@ var currentHole = 1;
 var coursePar = 0;
 
 function game() {
-	console.log("initializing game...");
 	playerIDs = getCookie('currentPlayers').split(',');
-	//console.log(playerIDs);
 	if (playerIDs == "" ) {
 		console.log("No current players, redirecting to initgame.html");
 		window.location.href='/initgame.html';
@@ -39,7 +37,6 @@ function initCourse() {
     }
     xhr.onload = function() {
         var jsonData = JSON.parse(xhr.responseText);
-        //console.log(jsonData);
         course = jsonData;
         for (var i = 0; i < course.holes.length; i++) {
         	coursePar += course.holes[i].par;
@@ -56,38 +53,50 @@ function initCourse() {
 
 function initPlayers() {
 	var f = (function(){
-        var xhr = [];
-        for (i = 0; i < playerIDs.length; i++) {
-            (function (i) {
-            	var requestURL = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/player?id=' + playerIDs[i];
-                xhr[i] = createCORSRequest('GET',  requestURL);
-			    if (!xhr) {
-			        throw new Error('CORS not supported');
-			    } 
-			    xhr[i].onreadystatechange = function() {
-    				if (xhr[i].readyState == 4 && xhr[i].status == 200) {
-        				var jsonData = JSON.parse(xhr[i].responseText);
-        				//console.log(jsonData);
-	        			players[i] = jsonData;
-	        			//console.log("players l : " + players.length + ", ids l : " + playerIDs.length);
+    var xhr = [];
+    for (i = 0; i < playerIDs.length; i++) {
+      (function (i) {
+      	var requestURL = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/player?id=' + playerIDs[i];
+        xhr[i] = createCORSRequest('GET',  requestURL);
 
-						var id = -1;
+		    if (!xhr) {
+		        throw new Error('CORS not supported');
+		    } 
+
+    		xhr[i].onreadystatechange = function() {
+					if (xhr[i].readyState == 4 && xhr[i].status == 200) {
+						var jsonData = JSON.parse(xhr[i].responseText);
+	  				players[i] = jsonData;
+	  				
+						// init player scores
 						var scores = [];
-						for (var j = 0; j < course.holes.length; j++) {
-							scores[j] = course.holes[j].par;
+
+						// if no save game
+						if (getCookie('currentSavedScores') == "") {
+							console.log('No save game found, starting new game...');
+							for (var j = 0; j < course.holes.length; j++) {
+								scores[j] = course.holes[j].par;
+							}
+						}	else { // save game found
+							console.log('Save game found, loading...');
+							var savedScores = JSON.parse(getCookie('currentSavedScores'));
+							scores = savedScores[i].pscores;
 						}
 						playerScores[i] = { id : players[i].id, pscores : scores };
-						//console.log(playerScores[i].pscores);
+
 						refreshTable();
-    				}
+					}
 				};
-                xhr.onerror = function() {
-	        		console.log('There was an error!');
-	   			 };
-                xhr[i].send();
-            })(i);
-        }
-    })();
+
+        xhr.onerror = function() {
+    			console.log('There was an error!');
+			  };
+
+    	xhr[i].send();
+
+    	})(i);
+    }
+	})();
 }
 
 function printCourse() {
@@ -204,7 +213,6 @@ function refreshTable() {
 }
 
 function refreshHole() {
-	//console.log(currentHole);
 	if ( currentHole == 1 ) {
 		$('#minus').attr("disabled", true);
 	} else {
@@ -234,7 +242,6 @@ function refreshHole() {
 }
 
 function changeScore(playerid, dir) {
-	//console.log("changing score")
 	var result = $.grep(playerScores, function(e){ if (e != null) return e.id == playerid; });
 	if (dir == -1) {
 		result[0].pscores[(currentHole-1)] -= 1;
@@ -248,6 +255,7 @@ function changeScore(playerid, dir) {
 }
 
 function changeHole(dir) {
+	setCookie('currentSavedScores', JSON.stringify(playerScores), 30);
 	if (dir == -1) {
 		currentHole -= 1;
 	} else if (dir == 1) {
@@ -262,7 +270,6 @@ function changeHole(dir) {
 
 function submitScores() {
 	if ( confirm('Are you sure you want to submit these scores?') ) {
-    	//console.log(playerScores);
     	var playerScoreStr = "";
     	for (var i = 0; i < playerScores.length; i++) {
     		playerScoreStr += playerScores[i].id + ":";
@@ -274,7 +281,6 @@ function submitScores() {
     		}
     		playerScoreStr += ";";
     	}
-    	//console.log("Sending scores, score string : \"" + playerScoreStr + "\"");
     	var data = { scores : playerScoreStr, courseID : courseID};
     	var url = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/addroundscore';
     	$.ajax({
@@ -282,16 +288,12 @@ function submitScores() {
 			url: url,
 		    data: data,
 			success: function(roundObject) {
-				//var roundJSON = JSON.parse(roundObject);
-				//console.log(roundObject);
 				setCookie('currentRoundScores', JSON.stringify(roundObject), 30);
-				//alert("Scores sent succesfully.");
+				setCookie('currentSavedScores', '', 30);
 				window.location.href = '/scorecard.html';
 			},
 			error: function(error) {
 				console.log("Error occured when sending scores: " + error.responseText);
-				//console.log("Scores saved in cookie");
-				//setCookie('currentRoundScores', result, 30);
 			},
 		});
 	} else {

@@ -29,13 +29,13 @@ function printScorecardsList() {
 		//console.log(totalsString);
 		$('#scorecards-list').append(
 			'<a class="list-group-item list-group-item-info" href="javascript:void(0)" onClick="goToScoreCard(' + i + ')">'
-			+ '<h4 class="list-title">' + rounds[i].course.name
+			+ '<h5 class="list-title">' + rounds[i].course.name
 			+ '<br/><small>'
 			+ playedAt
 			+ '</small><br/>'
 			+ '<small>'
 			+ totalsString
-			+ '</small></h4>'
+			+ '</small></h5>'
 			+ '</a>'
 		);
 	}

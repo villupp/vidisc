@@ -1,4 +1,11 @@
 function initGame() {
+    if (getCookie('currentSavedScores') != '') {
+        if (confirm('Saved scores were found, do you want to continue saved game?')) {
+            window.location.href='/game.html';
+        } else {
+            setCookie('currentSavedScores', '', 30);
+        }
+    }
     initCourseSelect();
     initPlayerSelect();
 }
@@ -10,7 +17,6 @@ function initPlayerSelect() {
     }
     xhr.onload = function() {
         var jsonData = JSON.parse(xhr.responseText);
-        //console.log(jsonData);
         printPlayerSelection(jsonData);
     };
     xhr.onerror = function() {
