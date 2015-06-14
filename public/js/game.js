@@ -308,7 +308,5 @@ function submitScores() {
 				console.log("Error occured when sending scores: " + error.responseText);
 			},
 		});
-	} else {
-   		alert("Scores were not sent.");
 	}
 }
