@@ -54,11 +54,13 @@
     width: 100%;
 }
 
-#back-a {
+#back-btn {
 	font-size: 12pt;
 	float: right;
-	margin-right: 50px;
-	margin-top: 25px; 
+	margin-right: 180px;
+	margin-top: 12px; 
+	width: 65px;
+	height: 65px;
 }
 
 @media screen and (min-device-width: 481px) {

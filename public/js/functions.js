@@ -24,7 +24,7 @@ function getCookie(cname) {
 }
 
 function about() {
-    alert('Vidisc\nv' + version + ' (' + rlsdt2 + ')\n©Ville Piirainen 2015')
+    alert('Vidisc\nv' + version + ' (' + rlsdt + ')\n©Ville Piirainen 2015')
 }
 
 /*
