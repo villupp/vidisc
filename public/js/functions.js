@@ -63,3 +63,40 @@ Date.prototype.addHours= function(h){
     this.setHours(this.getHours()+h);
     return this;
 }
+
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
+
+function countSum(arr) {
+    var sum = 0;
+    for (var i= 0; i < arr.length; i++)
+        sum += arr[i];
+    return sum;
+}
+
+function countAvg(arr) {
+    var avg = 0;
+    var sum = 0;
+    for (var i= 0; i < arr.length; i++)
+        sum += arr[i];
+    return sum / arr.length;
+}
+
+function getCoursePar(holes) {
+    var parSum = 0;
+    for (var i = 0; i < holes.length; i++) {
+        parSum += holes[i].par;
+    };
+    return parSum;
+}
