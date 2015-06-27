@@ -1,3 +1,38 @@
+#main-container {
+	padding: 15px;
+}
+.course>.title {
+	padding: 5px 15px 5px 15px;
+	cursor: pointer;
+	margin-top: 5px;
+	border-radius: 3px 3px 3px 3px;
+}
+.course>.content {
+	background-color: #333333;
+	padding: 15px 15px 10px 15px;
+	height: auto;
+	overflow: hidden;
+	border-radius: 3px 3px 5px 5px;
+}
+.hole-info-container {
+	float: right;
+	width: 52%;
+	height: 150px;
+}
 .course-totalavg {
 	color: #FFFFFF;
 }
+.hole-stats-container {
+	margin: 5px 0px 0px 0px;
+}
+.hole-score-chart-container {
+	float: left;
+	width: 45%;
+	height: 150px;
+	padding: 10px 0px 0px 0px;
+}
+.hole-score-chart {
+	width: 125px;
+	height: 125px;
+}
+

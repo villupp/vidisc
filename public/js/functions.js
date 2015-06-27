@@ -41,6 +41,23 @@ function checkCookie() {
 }
 */
 
+function getScoreColor(score, holePar) {
+    var scoreColors = {
+        "-3": '#CC00FF',
+        "-2": '#AA00CC',
+        "-1": '#4444FF',
+        "0": '#00FF00',
+        "1": '#FFAA33',
+        "2": '#FF2222'
+    };
+    var diff = score-holePar;
+    if (diff < -3) {
+        return "#FFFFF";
+    } else if (diff > 2) return "#aa0000"
+    if (score == 1) return "#FF00FF"; // hole in one
+    else return scoreColors[diff.toString()];
+}
+
 function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
     if ("withCredentials" in xhr) {

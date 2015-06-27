@@ -197,18 +197,7 @@ function refreshTable() {
 			);
 			// Scorecell for hole score
 			if (playerScoreRes[0] != null) {
-				var color = "#00FF00"; //green (par)
-				if ( playerScore == 1 ) {
-					color = "#FF1493"; //holeinone
-				} else if ( playerScore < (currentPar-1) ) {
-					color = "#BA15FF"; //violet ( -2 )
-				} else if ( playerScore < currentPar ) {
-					color = "#4444FF"; //blue ( < 0 )
-				} else if ( playerScore == (currentPar + 1) ) {
-					color = "#FFA500"; //primary ( +1 )
-				} else if ( playerScore > (currentPar + 1) ) {
-					color = "#FF0000"; //red ( > +1 )
-				}
+				var color = getScoreColor(playerScore, currentPar);
 				$('#' + players[i].id).find('#scorecell').empty().append(
 					'<font id="score" style="color: ' + color + ';">'
 					+ playerScoreRes[0].pscores[(currentHole-1)]
