@@ -27,20 +27,6 @@ function about() {
     alert('Vidisc\nv' + version + ' (' + rlsdt + ')\n©Ville Piirainen 2015')
 }
 
-/*
-function checkCookie() {
-    var user = getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-        user = prompt("Please enter your name:", "");
-        if (user != "" && user != null) {
-            setCookie("username", user, 365);
-        }
-    }
-}
-*/
-
 function getScoreColor(score, holePar) {
     var scoreColors = {
         "-3": '#CC00FF',
@@ -84,8 +70,7 @@ Date.prototype.addHours= function(h){
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
+    for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] == sParam) 
         {

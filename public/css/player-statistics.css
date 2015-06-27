@@ -4,7 +4,7 @@
 .course>.title {
 	padding: 5px 15px 5px 15px;
 	cursor: pointer;
-	margin-top: 5px;
+	margin-top: 15px;
 	border-radius: 3px 3px 3px 3px;
 }
 .course>.content {
@@ -14,25 +14,60 @@
 	overflow: hidden;
 	border-radius: 3px 3px 5px 5px;
 }
-.hole-info-container {
-	float: right;
-	width: 52%;
-	height: 150px;
-}
-.course-totalavg {
+.course-stat {
 	color: #FFFFFF;
+	padding-left: 10px;
+}
+.hole-title {
+	margin: 5px 0px 0px 0px;
+	height: 50px;
+}
+.hole-header {
+	width: 60%;
+	float: left;
+	padding: 3px 0px 0px 10px;
+	height: 100%;
+	color: #FFFFFF;
+	margin-bottom: 0px;
+	vertical-align: middle;
+}
+.hole-controls {
+	width: 40%;
+	float: right;
 }
 .hole-stats-container {
+	padding: 5px;
 	margin: 5px 0px 0px 0px;
+	height: 150px;
+}
+.hole-stats {
+	
+}
+.hole-info-container {
+	float: right;
+	width: 50%;
+	height: 150px;
+	background-color: #111111;
+	border-radius: 15px 15px 15px 15px;
+	border: 1px solid #FFFFFF;
+	padding: 10px 10px 10px 10px;
+	color: #FFFFFF;
 }
 .hole-score-chart-container {
 	float: left;
-	width: 45%;
+	width: 50%;
 	height: 150px;
 	padding: 10px 0px 0px 0px;
 }
 .hole-score-chart {
-	width: 125px;
-	height: 125px;
+	width: 135px;
+	height: 135px;
 }
-
+hr {
+	margin: 10px 10px 10px 10px;
+}
+#minus, #plus {
+	width: 50px;
+	height: 50px;
+	margin-left: 3px;
+}
