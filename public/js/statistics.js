@@ -140,8 +140,8 @@ function printStats() {
 			+ '<div class="course-stat">Avg course score: ' 
 			+ roundedAvgCourseScore + ' (' + getScoreDiffPrefix(avgCourseScore, coursePar) + roundedAvgCourseScoreDiff + ')</div>'
 			+ '<div class="course-stat optimal-round-score"></div>'
-			+ '<div> class="course-score-linechart-container">'
-			+ '<canvas id="' + i + '" class="course-score-linechart" width="250" height="150"></canvas></div>'
+			+ '<div class="course-score-linechart-container">'
+			+ '<canvas id="' + i + '" class="course-score-linechart line-chart" width="250" height="150"></canvas></div>'
 			+ '<hr/>'
 			// hole line (txt and controls)
 			+ '<div class="hole-title">'
@@ -248,7 +248,7 @@ function printStats() {
 				+ '<div class="hole-score-chart-container">'
 				+ '<canvas id="' + j + '" class="hole-score-chart" width="100" height="135"></canvas></div>'
 				+ '<div> class="hole-score-linechart-container">'
-				+ '<canvas id="' + j + '" class="hole-score-linechart" width="250" height="150"></canvas></div>'
+				+ '<canvas id="' + j + '" class="hole-score-linechart line-chart" width="250" height="150"></canvas></div>'
 				+ '</div>'
 			);
 			var holeScoreChartCtx = $('#' + courses[i].id + '.course #' + j + '.hole-score-chart').get(0).getContext("2d");
