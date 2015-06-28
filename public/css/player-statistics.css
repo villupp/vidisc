@@ -27,7 +27,7 @@
 	height: 50px;
 }
 .hole-header {
-	width: 60%;
+	width: 54%;
 	float: left;
 	padding: 3px 0px 0px 10px;
 	height: 100%;
@@ -36,7 +36,7 @@
 	vertical-align: middle;
 }
 .hole-controls {
-	width: 40%;
+	width: 42%;
 	float: right;
 }
 .hole-stats-container {
@@ -49,17 +49,18 @@
 }
 .hole-info-container {
 	float: right;
-	width: 50%;
+	width: 44%;
 	height: 150px;
 	background-color: #111111;
 	border-radius: 15px 15px 15px 15px;
 	border: 1px solid #FFFFFF;
-	padding: 10px 10px 10px 10px;
+	padding: 10px 5px 10px 10px;
 	color: #FFFFFF;
+	font-size: 9pt;
 }
 .hole-score-chart-container {
 	float: left;
-	width: 50%;
+	width: 48%;
 	height: 150px;
 	padding: 10px 0px 0px 0px;
 }

@@ -141,7 +141,7 @@ function printStats() {
 			+ roundedAvgCourseScore + ' (' + getScoreDiffPrefix(avgCourseScore, coursePar) + roundedAvgCourseScoreDiff + ')</div>'
 			+ '<div class="course-stat optimal-round-score"></div>'
 			+ '<div> class="course-score-linechart-container">'
-			+ '<canvas id="' + i + '" class="course-score-linechart" width="270" height="150"></canvas></div>'
+			+ '<canvas id="' + i + '" class="course-score-linechart" width="250" height="150"></canvas></div>'
 			+ '<hr/>'
 			// hole line (txt and controls)
 			+ '<div class="hole-title">'
@@ -246,16 +246,16 @@ function printStats() {
 				'<div id="' + (j+1) + '" class="hole-stats"><div class="hole-info-container">'
 				+ '</div>'
 				+ '<div class="hole-score-chart-container">'
-				+ '<canvas id="' + j + '" class="hole-score-chart" width="135" height="135"></canvas></div>'
+				+ '<canvas id="' + j + '" class="hole-score-chart" width="100" height="135"></canvas></div>'
 				+ '<div> class="hole-score-linechart-container">'
-				+ '<canvas id="' + j + '" class="hole-score-linechart" width="270" height="150"></canvas></div>'
+				+ '<canvas id="' + j + '" class="hole-score-linechart" width="250" height="150"></canvas></div>'
 				+ '</div>'
 			);
 			var holeScoreChartCtx = $('#' + courses[i].id + '.course #' + j + '.hole-score-chart').get(0).getContext("2d");
 			var holeScoreChart = new Chart(holeScoreChartCtx).Pie(holeScoreChartData, {
 			    segmentShowStroke : true,
 			    segmentStrokeColor : "#333333",
-			    segmentStrokeWidth : 1,
+			    segmentStrokeWidth : 1.5,
 			    animationSteps : 100,
 			    animationEasing : "easeOutBounce",
 			    legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
@@ -334,7 +334,7 @@ function refreshHole(course) {
 	else 
 		$('#' + course.id + '.course').find('button#plus').attr("disabled", false);
 	$('#' + course.id + '.course .hole-stats').hide();
-	$('#' + course.id + '.course').find('#' + currentHole[course.id] + '.hole-stats').fadeIn(100);
+	$('#' + course.id + '.course').find('#' + currentHole[course.id] + '.hole-stats').show();
 }
 
 function changeHole(dir, courseId) {
@@ -436,7 +436,7 @@ $(document).ready(function () {
 	getPlayer();
 
 	$('body').on('click', '.title', function() {
-		$(this).next('.content').slideToggle();
+		$(this).next('.content').toggle();
 	});
 
 	$('body').on('click', '#minus', function() {
