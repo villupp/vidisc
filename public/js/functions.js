@@ -1,5 +1,5 @@
-var version = '1.1b'
-var rlsdt = '14.06.2015'
+var version = 'rc1.2'
+var rlsdt = '28.06.2015'
 
 $(document).ready(function() {
     $('#version').append('v' + version)
@@ -27,19 +27,23 @@ function about() {
     alert('Vidisc\nv' + version + ' (' + rlsdt + ')\n©Ville Piirainen 2015')
 }
 
-function getScoreColor(score, holePar) {
+function getScoreColor(score, holePar, getReadable) {
     var scoreColors = {
         "-3": '#CC00FF',
         "-2": '#AA00CC',
-        "-1": '#4444FF',
+        "-1": '#3355FF',
         "0": '#00FF00',
-        "1": '#FFAA33',
-        "2": '#FF2222'
+        "1": '#FFAA00',
+        "2": '#FF2222',
+        "3": '#AA2222',
+        "4": '#772222',
+        "5": '#442222'
     };
     var diff = score-holePar;
     if (diff < -3) {
         return "#FFFFF";
-    } else if (diff > 2) return "#aa0000"
+    } else if (diff > 2 && getReadable == true) return "#FF2222"
+    else if (diff > 5) return "#000000"
     if (score == 1) return "#FF00FF"; // hole in one
     else return scoreColors[diff.toString()];
 }

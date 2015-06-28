@@ -1,0 +1,15 @@
+#main-container {
+	padding: 15px;
+}
+
+#players-list-container {
+	padding: 0px 25px 0px 25px;
+}
+#players-list-container a {
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+}
+.list-group-item {
+	border-color: #333;
+}

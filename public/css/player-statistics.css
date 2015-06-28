@@ -1,6 +1,10 @@
 #main-container {
 	padding: 15px;
 }
+#player-name {
+	text-align: center;
+	vertical-align: middle;
+}
 .course>.title {
 	padding: 5px 15px 5px 15px;
 	cursor: pointer;
@@ -38,7 +42,7 @@
 .hole-stats-container {
 	padding: 5px;
 	margin: 5px 0px 0px 0px;
-	height: 150px;
+	height: 320px;
 }
 .hole-stats {
 	

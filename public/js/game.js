@@ -197,7 +197,7 @@ function refreshTable() {
 			);
 			// Scorecell for hole score
 			if (playerScoreRes[0] != null) {
-				var color = getScoreColor(playerScore, currentPar);
+				var color = getScoreColor(playerScore, currentPar, true);
 				$('#' + players[i].id).find('#scorecell').empty().append(
 					'<font id="score" style="color: ' + color + ';">'
 					+ playerScoreRes[0].pscores[(currentHole-1)]

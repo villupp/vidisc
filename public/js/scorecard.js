@@ -16,8 +16,8 @@ function printScorecard(round) {
  	for (var i = 0; i < course.holes.length; i++) {
 		coursePar += course.holes[i].par;
 	}
-	if (coursePrint.length > 21) {
-		coursePrint = coursePrint.substring(0, 19) + '.. ';
+	if (coursePrint.length > 30) {
+		coursePrint = coursePrint.substring(0, 27) + '.. ';
 	}
 	coursePrint += '<br/>(par ' + coursePar + ')';
 
@@ -61,20 +61,7 @@ function printScorecard(round) {
 		);
 		for (var j = 0; j < round.players.length; j++) {
 			var score = round.players[j].scores[i];
-			var bgcolor = "";
-			if ( score == 1 ) {
-				bgcolor = "#FF1493"; //holeinone
-			} else if ( score < (holePar-1) ) {
-				bgcolor = "#BA15FF"; //violet ( -2 )
-			} else if ( score < holePar ) {
-				bgcolor = "#4444FF"; //blue ( < 0 )
-			} else if ( score == (holePar + 1) ) {
-				bgcolor = "#FFA500"; //primary ( +1 )
-			} else if ( score > (holePar + 1) ) {
-				bgcolor = "#FF0000"; //red ( > +1 )
-			} else {
-				bgcolor = "#00FF00"; //green (0)
-			}
+			var bgcolor = getScoreColor(score, holePar, true);
 			$('#hole' + i).append(
 				'<td style="background-color: ' + bgcolor + '">'
 				+ score

@@ -14,7 +14,7 @@ Chart.defaults.global = {
     //  easeInSine, easeOutExpo, easeOutCirc, easeOutCubic, easeInQuint,
     //  easeInElastic, easeInOutSine, easeInOutQuint, easeInBounce,
     //  easeOutElastic, easeInCubic]
-    animationEasing: "easeInSine",
+    animationEasing: "easeOutBounce",
 
     // Boolean - If we should show the scale at all
     showScale: true,
@@ -31,7 +31,7 @@ Chart.defaults.global = {
     scaleStartValue: null,
 
     // String - Colour of the scale line
-    scaleLineColor: "rgba(0,0,0,.1)",
+    scaleLineColor: "rgba(0,0,0,1)",
 
     // Number - Pixel width of the scale line
     scaleLineWidth: 1,
@@ -58,7 +58,7 @@ Chart.defaults.global = {
     scaleFontStyle: "normal",
 
     // String - Scale label font colour
-    scaleFontColor: "#666",
+    scaleFontColor: "#DDD",
 
     // Boolean - whether or not the chart should be responsive and resize when the browser does.
     responsive: false,
@@ -88,7 +88,7 @@ Chart.defaults.global = {
     tooltipFontStyle: "normal",
 
     // String - Tooltip label font colour
-    tooltipFontColor: "#fff",
+    tooltipFontColor: "#DDD",
 
     // String - Tooltip title font declaration for the scale label
     tooltipTitleFontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
