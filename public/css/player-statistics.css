@@ -42,31 +42,30 @@
 .hole-stats-container {
 	padding: 5px;
 	margin: 5px 0px 0px 0px;
-	height: 320px;
+	height: 290px;
 }
 .hole-stats {
 	
 }
 .hole-info-container {
 	float: right;
-	width: 44%;
-	height: 150px;
+	width: 50%;
+	height: 130px;
 	background-color: #111111;
 	border-radius: 15px 15px 15px 15px;
 	border: 1px solid #FFFFFF;
-	padding: 10px 5px 10px 10px;
+	padding: 15px 5px 10px 10px;
 	color: #FFFFFF;
 	font-size: 9pt;
 }
 .hole-score-chart-container {
 	float: left;
-	width: 48%;
+	width: 45%;
 	height: 150px;
 	padding: 10px 0px 0px 0px;
 }
 .hole-score-chart {
-	width: 135px;
-	height: 135px;
+
 }
 hr {
 	margin: 0px 10px 10px 10px;
@@ -76,7 +75,12 @@ hr {
 	height: 50px;
 	margin-left: 3px;
 }
-.course-score-linechart-container, .hole-score-linechart-container {
+.course-score-linechart-container {
+	margin-top: 5px;
+	width: 100%;
+	padding: 0px 5px 0px 5px;
+} 
+.hole-score-linechart-container {
 	width: 100%;
 	padding: 0px 5px 0px 5px;
 }

@@ -246,8 +246,8 @@ function printStats() {
 				'<div id="' + (j+1) + '" class="hole-stats"><div class="hole-info-container">'
 				+ '</div>'
 				+ '<div class="hole-score-chart-container">'
-				+ '<canvas id="' + j + '" class="hole-score-chart" width="100" height="135"></canvas></div>'
-				+ '<div> class="hole-score-linechart-container">'
+				+ '<canvas id="' + j + '" class="hole-score-chart" width="115" height="115"></canvas></div>'
+				+ '<div class="hole-score-linechart-container">'
 				+ '<canvas id="' + j + '" class="hole-score-linechart line-chart" width="250" height="150"></canvas></div>'
 				+ '</div>'
 			);

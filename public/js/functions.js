@@ -1,4 +1,4 @@
-var version = '1.2rc3'
+var version = '1.2'
 var rlsdt = '28.06.2015'
 
 $(document).ready(function() {
