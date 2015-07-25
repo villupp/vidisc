@@ -289,7 +289,7 @@ function submitScores() {
 			url: url,
 		    data: data,
 			success: function(roundObject) {
-				var roundId = roundObjec.id;
+				var roundId = roundObject.id;
 				setCookie('currentSavedScores', '', 30);
 				setCookie('currentHole', '', 30);
             	setCookie('currentPlayers', '', 30);
