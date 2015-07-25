@@ -1,5 +1,5 @@
-var version = '1.2'
-var rlsdt = '28.06.2015'
+var version = '1.3rc1'
+var rlsdt = '25.07.2015'
 
 $(document).ready(function() {
     $('#version').append('v' + version)

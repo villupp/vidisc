@@ -1,5 +1,6 @@
 #main-container {
-	padding: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 #player-name {
 	text-align: center;
@@ -10,6 +11,9 @@
 	cursor: pointer;
 	margin-top: 15px;
 	border-radius: 3px 3px 3px 3px;
+}
+.course>.title:first-child {
+	margin-top: 5px;
 }
 .course>.content {
 	background-color: #333333;

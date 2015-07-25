@@ -16,12 +16,13 @@ function getPlayers() {
 }
 
 function printPlayerSelection() {
+    $('#players-list-container').empty();
 	for (var i = 0; i < players.length; i++) {
 		$('#players-list-container').append(
 			//'<button class="btn btn-block btn-primary" onClick="javascript:window.location.href=\'player-statistics.html?id=' 
 			//+ players[i].id + '\'">' + players[i].name + '</button>'
-			'<a class="list-group-item list-group-item-info" href="javascript:window.location.href=\'player-statistics.html?id=' 
-			+ players[i].id + '\'">' + players[i].name + '</a'
+			'<button class="btn btn-primary btn-block" onClick="javascript:window.location.href=\'player-statistics.html?id=' 
+			+ players[i].id + '\'">' + players[i].name + '</button>'
 		);
 	};
 }

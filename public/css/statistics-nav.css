@@ -1,15 +1,22 @@
 #main-container {
-	padding: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
 }
 
 #players-list-container {
-	padding: 0px 25px 0px 25px;
+	padding: 0px 0px 0px 0px;
 }
-#players-list-container a {
-	color: #fff;
-	text-align: center;
-	vertical-align: middle;
+.btn-block+.btn-block {
+    margin-top: 0px;
 }
-.list-group-item {
-	border-color: #333;
+.btn-block.btn-primary {
+	border-radius: 0px 0px 0px 0px;
+	border-top: 1px solid black;
+}
+.btn-block.btn-primary:first-child {
+	border-radius: 5px 5px 0px 0px;
+}
+.btn-block.btn-primary:last-child {
+	border-radius: 0px 0px 5px 5px;
 }

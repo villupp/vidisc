@@ -1,4 +1,4 @@
-var rounds = [{}];
+var rounds = [];
 
 function scorecards() {
 	initScorecardList()
@@ -23,12 +23,13 @@ function initScorecardList() {
 }
 
 function printScorecardsList() {
+	$('#scorecards-list').empty();
 	for (var i = 0; i < rounds.length; i++) {
 		var totalsString = countTotals(rounds[i]);
 		var playedAt = new Date(rounds[i].playedAt).addHours(4).toLocaleString();
 		//console.log(totalsString);
 		$('#scorecards-list').append(
-			'<a class="list-group-item list-group-item-info" href="javascript:void(0)" onClick="goToScoreCard(' + i + ')">'
+			'<a class="list-group-item list-group-item-info" href="javascript:void(0)" onClick="goToScoreCard(' + rounds[i].id + ')">'
 			+ '<h5 class="list-title">' + rounds[i].course.name
 			+ '<br/><small>'
 			+ playedAt
@@ -41,9 +42,9 @@ function printScorecardsList() {
 	}
 }
 
-function goToScoreCard(roundIndex) {
-	setCookie('currentRoundScores', JSON.stringify(rounds[roundIndex]));
-	window.location.href = "/scorecard.html";
+function goToScoreCard(roundId) {
+	//setCookie('currentRoundScores', JSON.stringify(rounds[roundIndex]));
+	window.location.href = "/scorecard.html?id=" + roundId;
 }
 
 function countTotals(round) {

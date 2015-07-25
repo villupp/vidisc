@@ -55,6 +55,7 @@ function parsePlayerRoundCourses() {
 			courses.push(playerRounds[i].course);
 		}
 	}
+	$('#loading').remove();
 	for (var i = 0; i < courses.length; i++) {
 		$('#main-container').append(
 			'<div id="' + courses[i].id + '" class="course"></div>'

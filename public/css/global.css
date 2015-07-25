@@ -21,6 +21,23 @@
 	max-width: 350px;
 }
 
+#header-container > #left {
+	width: 75%;
+	float: left;
+}
+#right > #back-btn {
+	font-size: 12pt;
+}
+#header-container > #right {
+	width: 20%;
+	float: right;
+}
+
+#header-container {
+	margin-top: 15px;
+	height: 50px;
+}
+
 h3 {
 	/*color: #FF6600;*/
 	color: #FFFFFF;

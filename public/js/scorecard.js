@@ -1,9 +1,30 @@
-var currentRoundScores = getCookie('currentRoundScores');
+var currentRoundScores;
+
+function getScoreCard(roundId) {
+    var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/round?id=' + roundId);
+    if (!xhr) {
+        throw new Error('CORS not supported');
+    }
+    xhr.onload = function() {
+    	//console.log(xhr.responseText);
+        var jsonData = JSON.parse(xhr.responseText);
+        //console.log(jsonData);
+        currentRoundScores = jsonData;
+        // parse to currentRoundScores
+
+        printScorecard(currentRoundScores);
+    };
+    xhr.onerror = function() {
+        console.log('There was an error!');
+    };
+    xhr.send();
+}
 
 function scorecard() {
 	//console.log(currentRoundScores);
-	currentRoundScores = JSON.parse(currentRoundScores);
-	printScorecard(currentRoundScores);
+	var roundId = getUrlParameter('id');
+	getScoreCard(roundId);
+	//printScorecard(currentRoundScores);
 }
 
 function printScorecard(round) {

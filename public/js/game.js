@@ -289,11 +289,11 @@ function submitScores() {
 			url: url,
 		    data: data,
 			success: function(roundObject) {
-				setCookie('currentRoundScores', JSON.stringify(roundObject), 30);
+				var roundId = roundObjec.id;
 				setCookie('currentSavedScores', '', 30);
 				setCookie('currentHole', '', 30);
             	setCookie('currentPlayers', '', 30);
-				window.location.href = '/scorecard.html';
+				window.location.href = "/scorecard.html?id=" + roundId;
 			},
 			error: function(error) {
 				console.log("Error occured when sending scores: " + error.responseText);
