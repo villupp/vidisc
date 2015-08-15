@@ -19,20 +19,16 @@ function printPlayerSelection() {
   $('#players-list-container').empty();
   for (var i = 0; i < players.length; i++) {
     $('#players-list-container').append(
-      //'<button class="btn btn-block btn-primary" onClick="javascript:window.location.href=\'player-statistics.html?id=' 
-      //+ players[i].id + '\'">' + players[i].name + '</button>'
-      '<button class="btn btn-primary btn-block" onClick="javascript:window.location.href=\'player-statistics.html?id='
+      '<button class="btn btn-primary btn-block" onClick="javascript:window.location.href=\'stats/player?id='
       + players[i].id + '\'">' + players[i].name + '</button>'
       );
   };
 }
 
 function goToPlayerStats(playerId) {
-  window.location.href = '/player-statistics.html?id=' + playerId;
+  window.location.href = '/stats/player?id=' + playerId;
 }
 
 $(document).ready(function () {
   getPlayers();
 });
-
-//<button class="btn btn-block btn-primary" onClick="javascript:window.location.href='player-statistics.html?id=6'">Players</button>

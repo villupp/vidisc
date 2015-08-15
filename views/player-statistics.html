@@ -11,37 +11,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="/js/Chart.js"></script>
+    <script src="/js/ChartCfg.js"></script> 
     <!-- Javascript -->
-    <script src="js/functions.js"></script>
-    <script src="js/scorecards.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/statistics.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/global.css" >
-    <link rel="stylesheet" type="text/css" href="css/scorecards.css" >
+    <link rel="stylesheet" type="text/css" href="/css/global.css" >
+    <link rel="stylesheet" type="text/css" href="/css/player-statistics.css" >
 
     <title>Disc Golf</title>
   </head>
 
-  <body onLoad="scorecards()">
-  <!-- user -->
+  <body>
   <div class="container">
     <div id="main-container" class="container">
-      
+
       <div id="header-container">
-        <div id="left"><h4 class="center-x center-y center-x center-y">Scorecards</h4></div>
+        <div id="left">
+          <h4 id="player-name">Statistics for ..</h4>
+        </div>
         <div id="right">
-          <button id="back-btn" class="btn btn-lg btn-primary" onClick="javascript:window.location.href = '/';">
-          <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+          <button id="back-btn" class="btn btn-lg btn-primary" onClick="javascript:window.location.href = '/stats';">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
           </button>
         </div>
       </div>
-      
-      <div id="scorecards-container">
-        <ul id="scorecards-list" class="list-group">
-          <h5 class="center-x center-y center-x center-y">Loading..</h5>
-        </ul>
-      </div>
-    </div>
-  </div> <!-- /container -->
+
+      <h5 id="loading" class="center-x center-y center-x center-y">Loading..</h5>
+    </div>  
+  </div>
 
   </body>
 </html>

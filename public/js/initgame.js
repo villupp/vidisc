@@ -1,7 +1,7 @@
 function initGame() {
   if (getCookie('currentSavedScores') != '') {
     if (confirm('Saved scores were found, do you want to continue saved game?')) {
-      window.location.href = '/game.html';
+      window.location.href = '/game/play';
     } else {
       setCookie('currentSavedScores', '', 30);
       setCookie('currentHole', '', 30);
@@ -106,7 +106,7 @@ function startGame() {
     //console.log("course ID : " + courseID);
     //console.log("Player IDs : " + playerIDs);
     console.log("Redirecting...");
-    window.location.href = '/game.html';
+    window.location.href = '/game/play';
   }
 
 }

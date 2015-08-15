@@ -12,18 +12,28 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Javascript -->
-    <script src="js/functions.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/scorecard.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" >
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/css/scorecard.css" />
 
-    <title>Disc Golf</title>
+    <title>Scorecard</title>
   </head>
 
-  <body>
-  <!-- user -->
+  <body onLoad="scorecard()">
   <div class="container">
     <div id="main-container" class="container">
+      <div id="course-container" class="container">
+        <button id="back-btn" class="btn btn-lg btn-primary" onClick="javascript:window.location.href = '/scores';">
+          <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+        </button>
+      </div>
 
+      <div id="scorecard-container" class="container">
+        
+      </div>
+      
     </div>
   </div> <!-- /container -->
 

@@ -1,5 +1,5 @@
-var version = '1.3a'
-var rlsdt = '25.07.2015'
+var version = '1.4'
+var rlsdt = '15.08.2015'
 
 $(document).ready(function () {
   $('#version').append('v' + version)
@@ -9,7 +9,7 @@ function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   var expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + "; " + expires;
+  document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/";;
 }
 
 function getCookie(cname) {
@@ -81,7 +81,6 @@ function getUrlParameter(sParam) {
     }
   }
 }
-
 
 function countSum(arr) {
   var sum = 0;

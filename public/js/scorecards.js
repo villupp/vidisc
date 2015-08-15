@@ -44,7 +44,7 @@ function printScorecardsList() {
 
 function goToScoreCard(roundId) {
 	//setCookie('currentRoundScores', JSON.stringify(rounds[roundIndex]));
-	window.location.href = "/scorecard.html?id=" + roundId;
+	window.location.href = "/scores/scorecard?id=" + roundId;
 }
 
 function countTotals(round) {

@@ -6,9 +6,7 @@ function getScoreCard(roundId) {
 		throw new Error('CORS not supported');
 	}
 	xhr.onload = function () {
-		//console.log(xhr.responseText);
 		var jsonData = JSON.parse(xhr.responseText);
-		//console.log(jsonData);
 		currentRoundScores = jsonData;
 		// parse to currentRoundScores
 
@@ -21,10 +19,8 @@ function getScoreCard(roundId) {
 }
 
 function scorecard() {
-	//console.log(currentRoundScores);
 	var roundId = getUrlParameter('id');
 	getScoreCard(roundId);
-	//printScorecard(currentRoundScores);
 }
 
 function printScorecard(round) {

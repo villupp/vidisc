@@ -1,6 +1,6 @@
 // id's from cookies
 var playerIDs = [];
-var courseID = -1;
+var courseID = "-1";
 
 // printables
 var course = {};
@@ -17,15 +17,17 @@ var coursePar = 0;
 
 function game() {
 	playerIDs = getCookie('currentPlayers').split(',');
-	if (playerIDs.length == 0) {
+	courseID = getCookie('currentCourse');
+	
+	if (playerIDs.length == 0 || playerIDs[0] === "") {
 		console.log("No current players, redirecting to initgame.html");
-		window.location.href = '/initgame.html';
+		window.location.href = '/game';
 	}
-	var courseID = getCookie('currentCourse');
-	if (courseID.length == 0) {
+	if (courseID === "-1") {
 		console.log("No current course, redirecting to initgame.html");
-		window.location.href = '/initgame.html';
+		window.location.href = '/game';
 	}
+	
 	initCourse();
 }
 
@@ -180,9 +182,9 @@ function refreshTable() {
 			else if (currentTotalScore > coursePar) prefix = "+";
 			// Disabling + and - when necessary
 			if (playerScore == 1) {
-				$('#' + players[i].id).find('#pminusbtn').attr("disabled", "true");
+				$('#' + players[i].id).find('#pminusbtn').attr("disabled", true);
 			} else {
-				$('#' + players[i].id).find('#pminusbtn').attr("disabled", "false");
+				$('#' + players[i].id).find('#pminusbtn').attr("disabled", false);
 			}
 			// Generating printable player name and score and appending to namecell
 			var printName = players[i].name;
@@ -293,7 +295,7 @@ function submitScores() {
 				setCookie('currentSavedScores', '', 30);
 				setCookie('currentHole', '', 30);
 				setCookie('currentPlayers', '', 30);
-				window.location.href = "/scorecard.html?id=" + roundId;
+				window.location.href = "/scores/scorecard?id=" + roundId;
 			},
 			error: function (error) {
 				console.log("Error occured when sending scores: " + error.responseText);

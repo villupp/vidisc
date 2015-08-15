@@ -12,31 +12,25 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Javascript -->
-    <script src="js/functions.js"></script>
-    <script src="js/scorecard.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/game.js"></script>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/global.css" />
-    <link rel="stylesheet" type="text/css" href="css/scorecard.css" />
+    <link rel="stylesheet" type="text/css" href="/css/game.css" />
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
 
-    <title>Scorecard</title>
+    <title>Disc Golf</title>
   </head>
 
-  <body onLoad="scorecard()">
+  <body onLoad="game()">
   <div class="container">
     <div id="main-container" class="container">
       <div id="course-container" class="container">
-        <button id="back-btn" class="btn btn-lg btn-primary" onClick="javascript:window.location.href = '/scorecards.html';">
-          <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        </button>
-      </div>
-
-      <div id="scorecard-container" class="container">
         
       </div>
-      <div class="center-y center-x">
-       <!-- <button id="back-btn" class="btn-xs btn-primary" onClick="window.location.href = '/index.html';">Back</button>-->
-      </div>
       
+      <div id="playerscores-container" class="container">
+        
+      </div>
     </div>
   </div> <!-- /container -->
 

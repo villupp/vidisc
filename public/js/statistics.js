@@ -4,6 +4,7 @@ var players = [];
 var playerRounds = [];
 var playerId = getUrlParameter('id');
 var player = null;
+var currentStatHole = {};
 
 function getPlayer() {
 	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/player?id=' + playerId);
@@ -99,7 +100,7 @@ function parsePlayerRounds() {
 function printStats() {
 	for (var i = 0; i < courses.length; i++) {
 		// init current hole
-		currentHole[courses[i].id] = 1;
+		currentStatHole[courses[i].id] = 1;
 		var courseScoreLineChartLabels = [];
 		// for every course #courseid.course
 		var coursePar = getCoursePar(courses[i].holes);
@@ -320,20 +321,20 @@ function getHoleScores(course, hole) {
 
 function refreshHole(course) {
 	$('#' + course.id + '.course .hole-header').empty().append(
-		'Hole ' + currentHole[course.id]
-		+ '<br/>par ' + course.holes[currentHole[course.id] - 1].par
-		+ ' (' + course.holes[currentHole[course.id] - 1].lengthm + 'm)'
+		'Hole ' + currentStatHole[course.id]
+		+ '<br/>par ' + course.holes[currentStatHole[course.id] - 1].par
+		+ ' (' + course.holes[currentStatHole[course.id] - 1].lengthm + 'm)'
 		);
-	if (currentHole[course.id] == 1)
+	if (currentStatHole[course.id] == 1)
 		$('#' + course.id + '.course').find('button#minus').attr("disabled", "true");
 	else
 		$('#' + course.id + '.course').find('button#minus').attr("disabled", "false");
-	if (currentHole[course.id] == course.holes.length)
+	if (currentStatHole[course.id] == course.holes.length)
 		$('#' + course.id + '.course').find('button#plus').attr("disabled", "true");
 	else
 		$('#' + course.id + '.course').find('button#plus').attr("disabled", "false");
 	$('#' + course.id + '.course .hole-stats').hide();
-	$('#' + course.id + '.course').find('#' + currentHole[course.id] + '.hole-stats').show();
+	$('#' + course.id + '.course').find('#' + currentStatHole[course.id] + '.hole-stats').show();
 }
 
 function changeHole(dir, courseId) {
@@ -345,12 +346,12 @@ function changeHole(dir, courseId) {
 		}
 	};
 	if (dir == 1) {
-		if (currentHole[courseId] < course.holes.length)
-			currentHole[courseId]++;
+		if (currentStatHole[courseId] < course.holes.length)
+			currentStatHole[courseId]++;
 	}
 	else if (dir == -1) {
-		if (currentHole[courseId] > 1)
-			currentHole[courseId]--;
+		if (currentStatHole[courseId] > 1)
+			currentStatHole[courseId]--;
 	}
 	refreshHole(course);
 }
