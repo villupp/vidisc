@@ -1,23 +1,23 @@
 var currentRoundScores;
 
 function getScoreCard(roundId) {
-    var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/round?id=' + roundId);
-    if (!xhr) {
-        throw new Error('CORS not supported');
-    }
-    xhr.onload = function() {
-    	//console.log(xhr.responseText);
-        var jsonData = JSON.parse(xhr.responseText);
-        //console.log(jsonData);
-        currentRoundScores = jsonData;
-        // parse to currentRoundScores
+	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/round?id=' + roundId);
+	if (!xhr) {
+		throw new Error('CORS not supported');
+	}
+	xhr.onload = function () {
+		//console.log(xhr.responseText);
+		var jsonData = JSON.parse(xhr.responseText);
+		//console.log(jsonData);
+		currentRoundScores = jsonData;
+		// parse to currentRoundScores
 
-        printScorecard(currentRoundScores);
-    };
-    xhr.onerror = function() {
-        console.log('There was an error!');
-    };
-    xhr.send();
+		printScorecard(currentRoundScores);
+	};
+	xhr.onerror = function () {
+		console.log('There was an error!');
+	};
+	xhr.send();
 }
 
 function scorecard() {
@@ -45,7 +45,7 @@ function printScorecard(round) {
 	$('#course-container').append(
 		'<h4 id="courseprint">' + coursePrint + '</h4>'
 		+ '<h4 id="courseprint">' + playedAt + '</h4>'
-	);
+		);
 
 	$('#scorecard-container').append(
 		'<div id="scrollwrapper">'
@@ -56,13 +56,13 @@ function printScorecard(round) {
 		+ '</table>'
 		+ '</div>'
 		+ '</div>'
-	);
+		);
 	// Headers for scorecard
 	$('#scorecard-tbody').append(
 		'<tr id="headers">'
 		+ '<th>Hole<br/>(par)</th>'
 		+ '</tr>'
-	);
+		);
 	for (var i = 0; i < round.players.length; i++) {
 		var playerName = round.players[i].player.name;
 		if (playerName.length > 12) {
@@ -70,7 +70,7 @@ function printScorecard(round) {
 		}
 		$('#headers').append(
 			'<th>' + playerName + '</th>'
-		);
+			);
 	}
 	// PlayerScores
 	for (var i = 0; i < round.course.holes.length; i++) {
@@ -79,7 +79,7 @@ function printScorecard(round) {
 			'<tr id="hole' + i + '">'
 			+ '<th>' + (i + 1) + '(' + holePar + ')</th>'
 			+ '</tr>'
-		);
+			);
 		for (var j = 0; j < round.players.length; j++) {
 			var score = round.players[j].scores[i];
 			var bgcolor = getScoreColor(score, holePar, true);
@@ -87,28 +87,27 @@ function printScorecard(round) {
 				'<td style="background-color: ' + bgcolor + '">'
 				+ score
 				+ '</td>'
-			);
+				);
 		}
-		
+
 	}
 	// Results
 	$('#scorecard-tbody').append(
 		'<tr id="totals">'
 		+ '<th>par ' + coursePar + '</th>'
 		+ '</tr>'
-	);
+		);
 	for (var i = 0; i < round.players.length; i++) {
 		var playerTotalScore = 0;
-		var playerResult = 0;
 		var prefix = "";
 		for (var j = 0; j < round.players[i].scores.length; j++) {
 			playerTotalScore += round.players[i].scores[j];
 		}
 		if (playerTotalScore < coursePar) prefix = "-";
 		else if (playerTotalScore > coursePar) prefix = "+";
-		
+
 		$('#totals').append(
 			'<th>' + playerTotalScore + '(' + prefix + Math.abs(playerTotalScore - coursePar) + ')</th>'
-		);
+			);
 	}
 }

@@ -5,21 +5,21 @@ function scorecards() {
 }
 
 function initScorecardList() {
-    var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/rounds');
-    if (!xhr) {
-        throw new Error('CORS not supported');
-    }
-    xhr.onload = function() {
-    	//console.log(xhr.responseText);
-        var jsonData = JSON.parse(xhr.responseText);
-        //console.log(jsonData);
-        rounds = jsonData;
-        printScorecardsList();
-    };
-    xhr.onerror = function() {
-        console.log('There was an error!');
-    };
-    xhr.send();
+	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/rounds');
+	if (!xhr) {
+		throw new Error('CORS not supported');
+	}
+	xhr.onload = function () {
+		//console.log(xhr.responseText);
+		var jsonData = JSON.parse(xhr.responseText);
+		//console.log(jsonData);
+		rounds = jsonData;
+		printScorecardsList();
+	};
+	xhr.onerror = function () {
+		console.log('There was an error!');
+	};
+	xhr.send();
 }
 
 function printScorecardsList() {
@@ -38,7 +38,7 @@ function printScorecardsList() {
 			+ totalsString
 			+ '</small></h5>'
 			+ '</a>'
-		);
+			);
 	}
 }
 
@@ -57,7 +57,6 @@ function countTotals(round) {
 	// creating totalscores string using each players total
 	if (round.players != null) {
 		for (var i = 0; i < round.players.length; i++) {
-			var playerTotalStr = "";
 			var prefix = "";
 			var playerTotal = "";
 			var playerTotalScore = 0;
@@ -69,11 +68,11 @@ function countTotals(round) {
 			if (playerTotalScore > courseTotalPar) prefix = "+";
 			else if (playerTotalScore < courseTotalPar) prefix = "-";
 			// "<name> <prefix><Math.abs(playerscore-coursepar)>(, )"
-			playerTotal = round.players[i].player.name 
+			playerTotal = round.players[i].player.name
 			playerTotal += " ";
-			playerTotal += prefix 
+			playerTotal += prefix
 			playerTotal += Math.abs(playerTotalScore - courseTotalPar)
-			playerTotal += (i == (round.players.length-1)) ? "" : ", ";
+			playerTotal += (i == (round.players.length - 1)) ? "" : ", ";
 			totalsString += playerTotal;
 		}
 	}
