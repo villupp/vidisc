@@ -1,22 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * OpenShift env variables / localhost
- */
-var port = normalizePort(process.env.OPENSHIFT_NODEJS_PORT || 3000);
-var host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-
-/**
  * Module dependencies.
  */
 var app = require('./app');
 var debug = require('debug')('vidisc:server');
 var http = require('http');
 
-/**
- * Get port from environment and store in Express.
- */
-app.set('port', port);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3000);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
 /**
  * Create HTTP server.
  */
@@ -25,29 +18,11 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, host, function() {
-  console.log("Vidisc listening on " + host + ", serverPort " + port);
+server.listen(app.get('port'), app.get('ip'), function() {
+  console.log("Vidisc listening on " + app.get('ip') + ", serverPort " + app.get('port'));
 });
 server.on('error', onError);
 server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    return val;
-  }
-
-  if (port >= 0) {
-    return port;
-  }
-
-  return false;
-}
-
 /**
  * Event listener for HTTP server "error" event.
  */
