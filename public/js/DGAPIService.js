@@ -29,7 +29,11 @@ var DGAPIService = (function () {
 			return sendRequest(
 				'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/course?id=' + courseId,
 				'GET');
-		}	
+		},
+		// TMP. shouldnt be returned, should be used only in DGAPIService module.
+		createCORSRequest: function (method, url) {
+			return createCORSRequest(method, url);
+		}
 	};
 
 	function sendRequest(requestUrl, method, headers) {

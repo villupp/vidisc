@@ -57,7 +57,7 @@ function initPlayers() {
     for (var i = 0; i < playerIDs.length; i++) {
       (function (i) {
 				var requestURL = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/player?id=' + playerIDs[i];
-        xhr[i] = createCORSRequest('GET', requestURL);
+        xhr[i] = DGAPIService.createCORSRequest('GET', requestURL);
 
 				if (!xhr) {
 		        throw new Error('CORS not supported');
