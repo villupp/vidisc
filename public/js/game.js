@@ -32,14 +32,9 @@ function game() {
 }
 
 function initCourse() {
-	var requestURL = 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/course?id=' + courseID;
-	var xhr = createCORSRequest('GET', requestURL);
-	if (!xhr) {
-		throw new Error('CORS not supported');
-	}
-	xhr.onload = function () {
-		var jsonData = JSON.parse(xhr.responseText);
-		course = jsonData;
+	var getCourseRequest = DGAPIService.getCourse(courseID);
+	getCourseRequest.done(function (resCourse) {
+		course = resCourse;
 		for (var i = 0; i < course.holes.length; i++) {
 			coursePar += course.holes[i].par;
 		}
@@ -52,11 +47,8 @@ function initCourse() {
 		printCourse();
 		initPlayers();
 		printPlayerTable();
-	};
-	xhr.onerror = function () {
-		console.log('There was an error!');
-	};
-	xhr.send();
+	});
+	getCourseRequest.fail(onRESTError);
 }
 
 function initPlayers() {

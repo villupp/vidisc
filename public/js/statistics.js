@@ -7,33 +7,21 @@ var player = null;
 var currentStatHole = {};
 
 function getPlayer() {
-	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/player?id=' + playerId);
-	if (!xhr) {
-		throw new Error('CORS not supported');
-	}
-	xhr.onload = function () {
-		player = JSON.parse(xhr.responseText);
+	var getPlayerRequest = DGAPIService.getPlayer(playerId);
+	getPlayerRequest.done(function (resPlayer) {
+		player = resPlayer;
 		$('#player-name').empty().append('Statistics for ' + player.name);
-	};
-	xhr.onerror = function () {
-		console.log('There was an error!');
-	};
-	xhr.send();
+	});
+	getPlayerRequest.fail(onRESTError)
 }
 
 function getRounds() {
-	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/rounds');
-	if (!xhr) {
-		throw new Error('CORS not supported');
-	}
-	xhr.onload = function () {
-		rounds = JSON.parse(xhr.responseText);
+	var getRoundsRequest = DGAPIService.getRounds();
+	getRoundsRequest.done(function (resRounds) {
+		rounds = resRounds;
 		fillStats();
-	};
-	xhr.onerror = function () {
-		console.log('There was an error!');
-	};
-	xhr.send();
+	});
+	getRoundsRequest.fail(onRESTError);
 }
 
 function fillStats() {
@@ -69,17 +57,13 @@ function parsePlayerRounds() {
 	for (var i = 0; i < rounds.length; i++) {
 		var spliceThese = [];
 		for (var j = 0; j < rounds[i].players.length; j++) {
-			//log("---------------- playercount: " + rounds[i].players.length+  " ----------------");
-			//log("index: " + i + " playerid: " + parseInt(playerId) + " roundsplayerid: " + rounds[i].players[j].player.id);
 			if (parseInt(playerId) != rounds[i].players[j].player.id) {
 				spliceThese.push(j);
 			}
-			//log("i: " + i + " player count: " + rounds[i].players.length);
 		}
 		for (var j = (spliceThese.length - 1); j >= 0; j--) {
 			rounds[i].players.splice(spliceThese[j], 1);
 		}
-		//log(rounds[i].course.name);
 		if (rounds[i].players.length == 0) {
 			spliceTheseRounds.push(i);
 		}
@@ -326,13 +310,13 @@ function refreshHole(course) {
 		+ ' (' + course.holes[currentStatHole[course.id] - 1].lengthm + 'm)'
 		);
 	if (currentStatHole[course.id] == 1)
-		$('#' + course.id + '.course').find('button#minus').attr("disabled", "true");
+		$('#' + course.id + '.course').find('button#minus').attr("disabled", true);
 	else
-		$('#' + course.id + '.course').find('button#minus').attr("disabled", "false");
+		$('#' + course.id + '.course').find('button#minus').attr("disabled", false);
 	if (currentStatHole[course.id] == course.holes.length)
-		$('#' + course.id + '.course').find('button#plus').attr("disabled", "true");
+		$('#' + course.id + '.course').find('button#plus').attr("disabled", true);
 	else
-		$('#' + course.id + '.course').find('button#plus').attr("disabled", "false");
+		$('#' + course.id + '.course').find('button#plus').attr("disabled", false);
 	$('#' + course.id + '.course .hole-stats').hide();
 	$('#' + course.id + '.course').find('#' + currentStatHole[course.id] + '.hole-stats').show();
 }

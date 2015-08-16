@@ -1,21 +1,12 @@
 var currentRoundScores;
 
 function getScoreCard(roundId) {
-	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/round?id=' + roundId);
-	if (!xhr) {
-		throw new Error('CORS not supported');
-	}
-	xhr.onload = function () {
-		var jsonData = JSON.parse(xhr.responseText);
-		currentRoundScores = jsonData;
-		// parse to currentRoundScores
-
+	var getRoundRequest = DGAPIService.getRound(roundId);
+	getRoundRequest.done(function (resRound) {
+		currentRoundScores = resRound;
 		printScorecard(currentRoundScores);
-	};
-	xhr.onerror = function () {
-		console.log('There was an error!');
-	};
-	xhr.send();
+	});
+	getRoundRequest.fail(onRESTError);
 }
 
 function scorecard() {
@@ -85,7 +76,6 @@ function printScorecard(round) {
 				+ '</td>'
 				);
 		}
-
 	}
 	// Results
 	$('#scorecard-tbody').append(
@@ -96,9 +86,11 @@ function printScorecard(round) {
 	for (var i = 0; i < round.players.length; i++) {
 		var playerTotalScore = 0;
 		var prefix = "";
+		
 		for (var j = 0; j < round.players[i].scores.length; j++) {
 			playerTotalScore += round.players[i].scores[j];
 		}
+		
 		if (playerTotalScore < coursePar) prefix = "-";
 		else if (playerTotalScore > coursePar) prefix = "+";
 

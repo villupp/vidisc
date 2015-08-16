@@ -13,34 +13,19 @@ function initGame() {
 }
 
 function initPlayerSelect() {
-  var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/players');
-  if (!xhr) {
-    throw new Error('CORS not supported');
-  }
-  xhr.onload = function () {
-    var jsonData = JSON.parse(xhr.responseText);
-    printInitPlayerSelection(jsonData);
-  };
-  xhr.onerror = function () {
-    console.log('There was an error!');
-  };
-  xhr.send();
+  var getPlayersRequest = DGAPIService.getPlayers();
+	getPlayersRequest.done(function (resPlayers) {
+		printInitPlayerSelection(resPlayers);
+	});
+	getPlayersRequest.fail(onRESTError);
 }
 
 function initCourseSelect() {
-  var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/courses');
-  if (!xhr) {
-    throw new Error('CORS not supported');
-  }
-  xhr.onload = function () {
-    var jsonData = JSON.parse(xhr.responseText);
-    //console.log(jsonData);
-    printCourseSelection(jsonData);
-  };
-  xhr.onerror = function () {
-    console.log('There was an error!');
-  };
-  xhr.send();
+  var getCoursesRequest = DGAPIService.getCourses();
+	getCoursesRequest.done(function (resCourses) {
+		printCourseSelection(resCourses);
+	});
+	getCoursesRequest.fail(onRESTError);
 }
 
 function printCourseSelection(json) {
@@ -48,7 +33,6 @@ function printCourseSelection(json) {
     '<select id="course-select" class="selectpicker center-x center-y show-tick" size="2" data-width="100%"  data-style="btn-primary">'
     + '</select>'
     );
-  //console.log(json.length)
   for (var i = 0; i < json.length; i++) {
     $('#course-select').append(
       '<option class="course-option" value="'
@@ -72,7 +56,6 @@ function printInitPlayerSelection(json) {
     );
 
   for (var i = 0; i < json.length; i++) {
-    //console.log(json[i].id + " : " + json[i].name);
     var maxNameLength = 30;
     if (json[i].name.length > maxNameLength) {
       json[i].name = json[i].name.substring(0, (maxNameLength - 1)) + "...";
@@ -103,15 +86,12 @@ function startGame() {
   } else {
     setCookie('currentCourse', courseID, 30);
     setCookie('currentPlayers', playerIDs, 30);
-    //console.log("course ID : " + courseID);
-    //console.log("Player IDs : " + playerIDs);
     console.log("Redirecting...");
     window.location.href = '/game/play';
   }
 
 }
 
-// events
 $(document).ready(function () {
   $('body').on('click', '.playercheckbtn', function () {
     $(this).blur();
@@ -126,7 +106,5 @@ $(document).ready(function () {
       $(this).removeClass('btn-inverse').addClass('btn-success');
       $(this).next('input').attr('checked', "true");
     }
-
-
   });
 });

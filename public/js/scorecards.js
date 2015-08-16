@@ -5,21 +5,12 @@ function scorecards() {
 }
 
 function initScorecardList() {
-	var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/rounds');
-	if (!xhr) {
-		throw new Error('CORS not supported');
-	}
-	xhr.onload = function () {
-		//console.log(xhr.responseText);
-		var jsonData = JSON.parse(xhr.responseText);
-		//console.log(jsonData);
-		rounds = jsonData;
+	var getRoundsRequest = DGAPIService.getRounds();
+	getRoundsRequest.done(function (resRounds) {
+		rounds = resRounds;
 		printScorecardsList();
-	};
-	xhr.onerror = function () {
-		console.log('There was an error!');
-	};
-	xhr.send();
+	});
+	getRoundsRequest.fail(onRESTError);
 }
 
 function printScorecardsList() {

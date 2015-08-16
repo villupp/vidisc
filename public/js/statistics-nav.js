@@ -1,18 +1,12 @@
 var players = [];
 
 function getPlayers() {
-  var xhr = createCORSRequest('GET', 'http://discgolfapi-vpii.rhcloud.com/discgolfapi/disc/api/players');
-  if (!xhr) {
-    throw new Error('CORS not supported');
-  }
-  xhr.onload = function () {
-    players = JSON.parse(xhr.responseText);
+  var getPlayersRequest = DGAPIService.getPlayers();
+	getPlayersRequest.done(function (resPlayers) {
+    players = resPlayers;
     printPlayerSelection();
-  };
-  xhr.onerror = function () {
-    console.log('There was an error!');
-  };
-  xhr.send();
+	});
+	getPlayersRequest.fail(onRESTError)
 }
 
 function printPlayerSelection() {
