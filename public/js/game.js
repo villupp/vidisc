@@ -204,9 +204,9 @@ function refreshTable() {
 
 function refreshGameHole() {
 	if (currentHole == 1) {
-		$('#minus').attr("disabled", "true");
+		$('#minus').attr("disabled", true);
 	} else {
-		$('#minus').attr("disabled", "false");
+		$('#minus').attr("disabled", false);
 	}
 	if (currentHole == course.holes.length) {
 		$("#plus").html('<span class="glyphicon glyphicon-align-justify"></span>');
